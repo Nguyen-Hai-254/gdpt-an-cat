@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Navigation } from "../components/navigation";
 import { Header } from "../components/header";
 import { Features } from "../components/features";
 import { About } from "../components/about";
@@ -26,7 +25,6 @@ const App = () => {
 
     return (
         <div>
-            <Navigation />
             <Header data={landingPageData.Header} />
             <Features data={landingPageData.Features} />
             <About data={landingPageData.About} />

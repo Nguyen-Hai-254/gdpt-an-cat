@@ -1,0 +1,16 @@
+.lesson_item {
+    .lesson_text {
+        color: #112A46;
+    }
+
+    a:hover {
+        color: rgba(255, 0, 0, 0.5);
+
+    }
+
+    a:active {
+        color: #fff;
+        background: rgba(255, 0, 0, 0.5);
+
+    }
+}

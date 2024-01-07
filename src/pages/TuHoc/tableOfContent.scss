@@ -7,7 +7,7 @@
         display: flex;
         justify-content: space-evenly;
         margin-top: 15px;
-        
+
 
         .content_card a {
             align-items: center;
@@ -22,7 +22,7 @@
 
             .img {
                 max-width: 240px;
-                margin-top: 15px;
+                margin-top: 5px;
             }
 
             h4 {
@@ -35,5 +35,23 @@
             transform: scale(1.2, 1.2);
 
         }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content_row_card {
+        flex-direction: column;
+        margin-top: 0 !important;
+
+        .content_card {
+            margin-top: 15px;
+
+            a {
+                .img {
+                    max-width: 200px !important;
+                }
+            }
+        }
+
     }
 }

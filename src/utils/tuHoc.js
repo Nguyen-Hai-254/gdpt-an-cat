@@ -51,4 +51,38 @@ export const tuHoc = [
         title: 'Huynh Trưởng',
         url: '/tu-hoc/huynh truong',
     },
+];
+
+
+export const typeLesson = [
+    { value: 'Tu Học' },
+    { value: 'Huấn Luyện' }
+]
+
+export const typeLevel = [
+    { value: 'Mở Mắt' },
+    { value: 'Chân Cứng' },
+    { value: 'Cánh Mềm' },
+    { value: 'Tung Bay' },
+    { value: 'Hướng Thiện' },
+    { value: 'Sơ Thiện' },
+    { value: 'Trung Thiện' },
+    { value: 'Chánh Thiện' },
+    { value: 'Bậc Kiên' },
+    { value: 'Bậc Trì I' },
+    { value: 'Bậc Trì II' },
+    { value: 'Bậc Định I' },
+    { value: 'Bậc Định II' },
+    { value: 'Bậc Định III' },
+    { value: 'Bậc Lực I' },
+    { value: 'Bậc Lực II' },
+    { value: 'Bậc Lực III' },
+    { value: 'Bậc Lực IV' },
+]
+
+export const typeChapter = [
+    { value: 'A. Phật pháp - Tinh thần - Lịch sử' },
+    { value: 'B. Hoạt động thanh niên' },
+    { value: 'C. Hoạt động xã hội' },
+    { value: 'D. Văn nghệ' }
 ]

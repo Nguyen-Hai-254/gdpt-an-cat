@@ -5,6 +5,7 @@ export const navData = [
     },
     {
         title: 'Tu học',
+        url: '/tu-hoc',
         submenu: [
             {
                 title: 'Ngành Đồng',

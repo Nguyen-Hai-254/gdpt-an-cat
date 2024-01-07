@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./nav.scss"
+import { ExpandMore } from "@mui/icons-material";
 
 const Navbar = ({ navData }) => {
+
     return (
         <li className="navbarItem">
             {navData.submenu ? (
@@ -10,22 +12,31 @@ const Navbar = ({ navData }) => {
                     <NavLink
                         to={navData.url}
                         tag={Link}
-                        activeStyle={{ fontWeight: "bold" }}
-                    // style={{ color: theme.text }}
-                    // onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
-                    // onMouseOut={(event) => onMouseOut(event)}
-                    >{navData.title}</NavLink>
+                        style={({ isActive }) =>
+                            isActive ? {
+                                fontWeight: "bold",
+                            } : {}
+                        }
+                        className="navbar_title"
+                    >{navData.title}
+                        <ExpandMore sx={{ fontSize: 24, fontWeight: "bold" }} />
+                    </NavLink>
 
                     <ul className="navbarSubmenu">
                         {navData.submenu.map((submenu, index) => (
                             <li key={index} className="header_item">
-                                <a href={submenu.url}>{submenu.title}</a>
+                                <NavLink
+                                    tag={Link}
+                                    to={submenu.url}
+                                >
+                                    {submenu.title}
+                                </NavLink>
                             </li>
                         ))}
                     </ul>
                 </>
             ) : (
-                <a href={navData.url}>{navData.title}</a>
+                <NavLink to={navData.url}>{navData.title}</NavLink>
             )}
         </li>
     );
