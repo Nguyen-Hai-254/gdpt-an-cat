@@ -11,8 +11,14 @@ function createMarkup(html) {
     }
 }
 
+const bodyWidth = {
+    width: '60%',
+    '@media (max-width: 480px)': {
+        width: '85%'
+    }
+}
+
 const BaiHocChiTiet = ({ lessonId, level }) => {
-    console.log("zo");
     const [data, setData] = useState({});
 
     useEffect(() => {
@@ -33,10 +39,21 @@ const BaiHocChiTiet = ({ lessonId, level }) => {
         <Container sx={{
             maxWidth: '100% !important',
             display: 'flex',
-            mt: 5
+            mt: 5,
+            ml: 0,
+            pl: 0,
+            pr: 1,
         }}>
             <Sidebar level={level} />
-            <Box sx={{ width: '60%', ml: 2 }}>
+            <Box sx={{
+                // width: '60%',
+                // '@media (max-width: 480px)': {
+                //     width: '80%'
+                // },
+                ml: 2,
+
+            }}
+                containerStyle={bodyWidth}>
                 <Typography
                     sx={{}} variant="h2"> {data && data.title ? data.title : ''}</Typography>
                 <Box mt={3}

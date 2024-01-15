@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 
 import Home from "./pages/home";
 import NganhThieu from './pages/TuHoc/nganhThieu';
@@ -16,9 +16,17 @@ import { Container } from '@mui/material';
 import LessonManagement from './pages/Admin/lessonManagement';
 import Toastify from './components/toastify/toastify';
 import Account from './pages/account/account';
+import MatThu from './pages/matThu/matThu';
+import { useSelector } from 'react-redux';
+import ScrollToTop from './components/scroll';
+import LongHieuChimOanhVu from './pages/chuyenTienThan/LongHieuChimOanhVu';
+
 
 const App = () => {
     const location = useLocation();
+    const navigate = useNavigate();
+    const token = useSelector((state) => state.auth.access_token);
+
     const [mucLucMoMat, setMucLucMoMat] = useState([]);
     const [mucLucChanCung, setMucLucChanCung] = useState([]);
     const [mucLucCanhMem, setMucLucCanhMem] = useState([]);
@@ -29,49 +37,74 @@ const App = () => {
     const [mucLucTrungThien, setMucLucTrungThien] = useState([]);
     const [mucLucChanhThien, setMucLucChanhThien] = useState([]);
 
-    useEffect(async () => {
+    useEffect(() => {
         const fetchTableOfContentStudy = async (level) => {
             try {
                 const res = await getTableOfContentStudy(level);
+                switch (level) {
+                    case 'Mở Mắt':
+                        setMucLucMoMat(res.data);
+                        break;
+                    case 'Chân Cứng':
+                        setMucLucChanCung(res.data);
+                        break;
+                    case 'Cánh Mềm':
+                        setMucLucCanhMem(res.data);
+                        break;
+                    case 'Tung Bay':
+                        setMucLucTungBay(res.data);
+                        break;
+
+                    case 'Hướng Thiện':
+                        setMucLucHuongThien(res.data);
+                        break;
+                    case 'Sơ Thiện':
+                        setMucLucSoThien(res.data);
+                        break;
+                    case 'Trung Thiện':
+                        setMucLucTrungThien(res.data);
+                        break;
+                    case 'Chánh Thiện':
+                        setMucLucChanhThien(res.data);
+                        break;
+                }
                 return res.data
-                // setMucLucHuongThien(res.data);
             } catch (e) {
                 console.error(e.message);
             }
         }
 
-        setMucLucMoMat(await fetchTableOfContentStudy('Mở Mắt'));
-        setMucLucChanCung(await fetchTableOfContentStudy('Chân Cứng'));
-        setMucLucCanhMem(await fetchTableOfContentStudy('Cánh Mềm'));
-        setMucLucTungBay(await fetchTableOfContentStudy('Tung Bay'));
+        fetchTableOfContentStudy('Mở Mắt')
+        fetchTableOfContentStudy('Chân Cứng')
+        fetchTableOfContentStudy('Cánh Mềm')
+        fetchTableOfContentStudy('Tung Bay')
 
-        setMucLucHuongThien(await fetchTableOfContentStudy('Hướng Thiện'));
-        setMucLucSoThien(await fetchTableOfContentStudy('Sơ Thiện'));
-        setMucLucTrungThien(await fetchTableOfContentStudy('Trung Thiện'));
-        setMucLucChanhThien(await fetchTableOfContentStudy('Chánh Thiện'));
+        fetchTableOfContentStudy('Hướng Thiện')
+        fetchTableOfContentStudy('Sơ Thiện')
+        fetchTableOfContentStudy('Trung Thiện')
+        fetchTableOfContentStudy('Chánh Thiện')
     }, [])
-    console.log(location.pathname)
+
     return (
         // <Router>
         <>
             <Toastify />
-            {(location) => location.pathname !== '/login' ? <Navigation />: null}
-            {/* <Navigation pathname={location.pathname}/> */}
+            <ScrollToTop />
+            {location.pathname !== '/login' ? <Navigation /> : null}
 
-            <Container sx={{ minHeight: "80vh", maxWidth: '100% !important' }}>
+            <Container sx={{
+                minHeight: "80vh",
+                maxWidth: '100% !important',
+                mt: 5,
+                pl: "0 !important",
+                pr: "0 !important",
+            }}>
                 <Routes>
                     <Route
                         path="/"
                         exact
                         element={<Home />}
                     />
-
-                    {/* <Route
-                        element={(location) => ['/login'].includes(location.pathname)
-                            ? <Navigation />
-                            : <Navigation />
-                        }
-                    /> */}
 
                     <Route
                         path="/login"
@@ -260,14 +293,40 @@ const App = () => {
 
 
                     <Route
-                        path="/study"
+                        path="/tu-lieu-tham-khao"
                         exact
-                        element={<TuHoc />}
-                    />
+                    >
+                        <Route
+                            index
+                            element={<TuHoc />}
+                        />
+                        <Route
+                            path="cau-chuyen-tien-than"
+                            exact
+                        >
+                            <Route
+                                index
+                                element={<TuHoc />}
+                            />
+                            <Route
+                                path="long-hieu-cua-chim-oanh-vu"
+                                exact
+                                element={<LongHieuChimOanhVu />}
+                            ></Route>
+                        </Route>
+                    </Route>
 
                     <Route
+                        path="/mat-thu"
+                        exact
+                        element={<MatThu />}
+                    />
+
+
+                    <Route Route
                         path="/admin"
                         exact
+
                     >
                         <Route
                             index
@@ -278,19 +337,24 @@ const App = () => {
                             exact
                             element={<CreateLesson />}
                         >
-
                         </Route>
+                        <Route
+                            path='chinh-sua-bai-hoc/:lessonId'
+                            exact
+                            element={<CreateLesson />}
+                        ></Route>
                     </Route>
+
+
 
                     <Route
                         path="*"
                         element={<NotFound />}
                     />
                 </Routes>
-            </Container>
+            </Container >
 
-
-            <Footer />
+            {location.pathname !== '/login' ? <Footer /> : null}
         </>
         //  </Router > 
     )

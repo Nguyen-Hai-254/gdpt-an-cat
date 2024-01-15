@@ -5,8 +5,14 @@ import { toast } from "react-toastify";
 import Toastify from "../../components/toastify/toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { typeChapter, typeLevel } from "../../utils/tuHoc";
+import Selection from "../../components/selectionAdmin/selectionAdmin";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LessonManagement() {
+    const token = useSelector((state) => state.auth.access_token);
+    const navigate = useNavigate();
+
     const [skip, setSkip] = useState(0);
     const [limit, setLimit] = useState(10);
     const [rows, setRows] = useState([]);
@@ -45,7 +51,6 @@ export default function LessonManagement() {
     const fetchData = async (skip, limit, level, chapter) => {
         try {
             const res = await getAllLesson(skip, limit, level, chapter);
-            console.log(res.data);
             setRows(res.data.data);
             setNumberRow(res.data.count);
         } catch (e) {
@@ -54,7 +59,11 @@ export default function LessonManagement() {
     }
 
     useEffect(() => {
-        fetchData(skip, limit, level, chapter)
+        if (!token) {
+            navigate('/login');
+        }
+        else
+            fetchData(skip, limit, level, chapter)
     }, [skip, limit, level, chapter])
 
     const handleDeleteLesson = async (lessonId) => {
@@ -72,7 +81,6 @@ export default function LessonManagement() {
 
     const handleSetOrderLesson = async (lessonId, order) => {
         try {
-            console.log(lessonId, order)
             const res = await setOrderLesson(lessonId, order);
             if (res.statusCode === 200) {
                 toast.success(res.message)
@@ -84,13 +92,17 @@ export default function LessonManagement() {
         }
     }
 
+    const handleUpdateLesson = (lessonId) => {
+        navigate(`/admin/chinh-sua-bai-hoc/${lessonId}`);
+    }
+
     return (
         <>
             <Typography variant="h2">Quản lý chương trình tu học</Typography>
 
             <Box sx={{ display: "flex" }}>
-                <FormControl sx={{ m: 1, minWidth: 80 }}>
-                    <InputLabel>Bậc học</InputLabel>
+                <FormControl sx={{ m: 1, minWidth: 100 }}>
+                    <InputLabel sx={{ fontSize: 14 }}>Bậc học</InputLabel>
                     <Select
                         value={level}
                         onChange={handleChangeLevel}
@@ -107,8 +119,8 @@ export default function LessonManagement() {
                     </Select>
                 </FormControl>
 
-                <FormControl sx={{ m: 1, minWidth: 80 }}>
-                    <InputLabel>Học phần</InputLabel>
+                <FormControl sx={{ m: 1, minWidth: 100 }}>
+                    <InputLabel sx={{ fontSize: 14 }}>Học phần</InputLabel>
                     <Select
                         value={chapter}
                         onChange={handleChangeChapter}
@@ -124,6 +136,16 @@ export default function LessonManagement() {
                         })}
                     </Select>
                 </FormControl>
+                <Button size="large" variant="contained" sx={{
+                    margin: "auto 0 auto auto"
+                }}
+                >
+                    <Link to="/admin/tao-bai-hoc">
+                        <Typography variant="h6" color="#fff">
+                            Thêm bài học
+                        </Typography>
+                    </Link>
+                </Button>
             </Box >
 
 
@@ -135,8 +157,8 @@ export default function LessonManagement() {
                                 <TableCell sx={{ fontSize: "inherit" }}>Tiêu đề</TableCell>
                                 <TableCell sx={{ fontSize: "inherit" }} >Link</TableCell>
                                 {/* <TableCell sx={{ fontSize: "inherit" }} align="center">Chương trình tu học</TableCell> */}
-                                <TableCell sx={{ fontSize: "inherit" }} align="center">Bậc học</TableCell>
-                                <TableCell sx={{ fontSize: "inherit" }} align="center">Học phần</TableCell>
+                                <TableCell sx={{ fontSize: "inherit" }} align="left">Bậc học</TableCell>
+                                <TableCell sx={{ fontSize: "inherit" }} align="left">Học phần</TableCell>
                                 <TableCell sx={{ fontSize: "inherit" }} align="center">Thứ tự</TableCell>
                                 <TableCell sx={{ fontSize: "inherit" }} align="center">Hành động</TableCell>
                             </TableRow>
@@ -153,22 +175,10 @@ export default function LessonManagement() {
                                 >
                                     <TableCell component="th" scope="row" sx={{ fontSize: "inherit" }}> {row.title}</TableCell>
                                     <TableCell sx={{ fontSize: "inherit" }} >{row.url}</TableCell>
-                                    <TableCell sx={{ fontSize: "inherit" }} align="center">{row.level}</TableCell>
-                                    <TableCell sx={{ fontSize: "inherit" }} align="center">{row.chapter}</TableCell>
+                                    <TableCell sx={{ fontSize: "inherit" }} align="left">{row.level}</TableCell>
+                                    <TableCell sx={{ fontSize: "inherit" }} align="left">{row.chapter}</TableCell>
                                     <TableCell sx={{ fontSize: "inherit" }} align="center">
-                                        <Select
-                                            value={row.order ?? ""}
-                                            onChange={(e) => handleSetOrderLesson(row._id, e.target.value)}
-                                        >
-                                            {[...Array(40).keys()].map((index) => {
-                                                return (
-                                                    <MenuItem key={index} value={index + 1}>
-                                                        {index + 1}
-                                                    </MenuItem>
-                                                )
-                                            })}
-                                        </Select>
-
+                                        <Selection lessonId={row._id} orderLesson={row.order} setOrderLesson={handleSetOrderLesson} />
                                     </TableCell>
                                     <TableCell
                                         sx={{
@@ -176,9 +186,12 @@ export default function LessonManagement() {
                                             display: "flex",
                                             flexDirection: 'row',
                                             alignItems: 'center',
+                                            justifyContent: "center",
                                             minHeight: "inherit"
                                         }} align="right">
-                                        <Button variant="contained" sx={{ color: "yellow" }} >
+                                        <Button variant="contained" sx={{ color: "yellow" }}
+                                            onClick={() => handleUpdateLesson(row._id)}
+                                        >
                                             Edit
                                         </Button>
                                         <Button sx={{ ml: 1 }} variant="contained" color="error"

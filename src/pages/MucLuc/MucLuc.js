@@ -20,11 +20,17 @@ const MucLuc = ({ level }) => {
         }
 
         fetchData(level);
-        
+
     }, [level])
-    
+
     return (
-        <Container sx={{ width: "60%", margin: "30 auto", padding: 0 }}>
+        <Container sx={{
+            width: "60%",
+            '@media (max-width: 480px)': {
+                width: '85%'
+            },
+            margin: "30 auto", padding: 0
+        }}>
             {data && data.length !== 0 ?
                 data?.map((item, index) => {
                     return (

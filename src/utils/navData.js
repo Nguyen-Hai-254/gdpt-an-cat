@@ -21,7 +21,7 @@ export const navData = [
             },
             {
                 title: 'Huynh Trưởng',
-                url: '/tu-hoc/huynh truong',
+                url: '/tu-hoc/huynh-truong',
             },
         ],
     },
@@ -31,31 +31,31 @@ export const navData = [
         submenu: [
             {
                 title: 'Trại Tuyết Sơn',
-                url: 'education',
+                url: '/huan-luyen/trai-tuyet-son',
             },
             {
                 title: 'Trại Anoma - Ni Liên',
-                url: 'education',
+                url: '/huan-luyen/trai-anoma-ni-lien',
             },
             {
                 title: 'Trại ?',
-                url: 'education',
+                url: '/huan-luyen',
             },
             {
                 title: 'Trại Lộc Uyển',
-                url: 'education',
+                url: '/huan-luyen/trai-loc-uyen',
             },
             {
                 title: 'Trại A Dục',
-                url: 'education',
+                url: '/huan-luyen/trai-a-duc',
             },
             {
                 title: 'Trại Huyền Trang',
-                url: 'education',
+                url: '/huan-luyen/trai-huyen-trang',
             },
             {
                 title: 'Trại Vạn Hạnh',
-                url: 'education',
+                url: '/huan-luyen/trai-van-hanh',
             },            
         ],
     },
@@ -65,58 +65,58 @@ export const navData = [
         submenu: [
             {
                 title: "Gút dây",
-                url: '/'
+                url: '/hoat-dong-thanh-nien/gut-day'
             },
             {
                 title: "Mật thư",
-                url: '/'
+                url: '/hoat-dong-thanh-nien/mat-thu'
             },
             {
                 title: "Dấu đi đường",
-                url: '/'
+                url: '/hoat-dong-thanh-nien/dau-di-duong'
             },
             {
                 title: "Truyền tin",
-                url: '/'
+                url: '/hoat-dong-thanh-nien/truyen-tin'
             },
             {
                 title: "Phương hướng",
-                url: '/'
+                url: '/hoat-dong-thanh-nien/phuong-huong'
             },
             {
                 title: "Ước đạt",
-                url: '/'
+                url: '/hoat-dong-thanh-nien/uoc-dat'
             },
         ]
     },
     {
         title: 'Tư liệu tham khảo',
-        url: '/study',
+        url: '/tu-lieu-tham-khao',
         submenu: [
             {
                 title: 'Một số đề thi',
-                url: 'education',
+                url: '/tu-lieu-tham-khao/mot-so-de-thi',
             },
             {
                 title: 'Câu chuyện tiền thân',
-                url: 'education',
+                url: '/tu-lieu-tham-khao/cau-chuyen-tien-than',
             },
             {
                 title: 'file',
-                url: 'education',
+                url: '/tu-lieu-tham-khao/file',
             },
             {
                 title: 'Trò chơi',
-                url: 'education',
+                url: '/tu-lieu-tham-khao/tro-choi',
             },           
         ],
     },
     {
         title: 'Góc vườn lam',
-        url: '/study'
+        url: '/goc-vuon-lam'
     },
     {
         title: 'Giải mật thư',
-        url: '/education'
+        url: '/mat-thu'
     }
 ];

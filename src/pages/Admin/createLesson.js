@@ -1,17 +1,21 @@
 import { Box, Button, Grid, MenuItem, Select, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import AddIcon from '@mui/icons-material/Add';
-import { createLesson } from "../../api/lessonApi";
-import { EditorState, convertToRaw } from "draft-js";
+import { createLesson, getLessonById } from "../../api/lessonApi";
+import { ContentState, EditorState, convertFromHTML, convertFromRaw, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import { typeLesson, typeLevel, typeChapter } from "../../utils/tuHoc";
-import Toastify from "../../components/toastify/toastify";
 import { toast } from "react-toastify";
+import { useNavigate, useParams } from "react-router-dom";
+import { updateLesson } from "../../api/adminApi";
 
 
 const CreateLesson = () => {
+    const param = useParams();
+    const navigate = useNavigate();
+
     const [title, setTitle] = useState("");
     const [url, setUrl] = useState("");
     const [type, setType] = useState("");
@@ -25,7 +29,6 @@ const CreateLesson = () => {
                 toast.success(res.message)
             }
         } catch (e) {
-            console.log(e)
             if (e.response.status === 400) {
                 toast.error(e.response.data)
             }
@@ -39,9 +42,46 @@ const CreateLesson = () => {
         setContent(editorState);
     }
 
+    useEffect(() => {
+        const fetchData = async (lessonId) => {
+            const res = await getLessonById(lessonId);
+            const data = res.data;
+            setTitle(data.title);
+            setUrl(data.url);
+            setType(data.type);
+            setLevel(data.level);
+            setChapter(data.chapter);
+
+            const contentBlocks = convertFromHTML(data.content);
+            const contentState = ContentState.createFromBlockArray(
+                contentBlocks.contentBlocks,
+                contentBlocks.entityMap
+            );
+
+            setContent(EditorState.createWithContent(contentState));
+        }
+        if (param && param.lessonId) {
+            fetchData(param.lessonId);
+        }
+    }, [param])
+
+    const submitUpdateLesson = async () => {
+        try {
+            const res = await updateLesson(param.lessonId, title, url, type, level, chapter, draftToHtml(convertToRaw(content.getCurrentContent())))
+            if (res.statusCode === 200) {
+                toast.success(res.message);
+                navigate('/admin');
+            }
+        } catch (e) {
+            if (e && e.response && e.response.data) {
+                toast.error(e.response.data)
+            }
+        }
+    }
+
     return (
         <Box sx={{ maxWidth: '80%' }} margin="0 auto">
-            <Typography variant="h1" textAlign={"center"} >Tạo bài học mới </Typography>
+            <Typography variant="h1" textAlign={"center"} >{param ? 'Chỉnh sửa bài học' : 'Tạo bài học mới'}</Typography>
 
             <Box mt={3}>
                 <Typography variant="h4" >
@@ -141,15 +181,25 @@ const CreateLesson = () => {
                 </Box>
             </Box>
 
-            <Button variant="contained" size="large"
-                sx={{
-                    fontSize: 16,
-                    mt: 3
-                }}
-                startIcon={<AddIcon />}
-                onClick={() => submitCreateLesson()}
-            >Tạo bài học</Button>
-            <Toastify />
+            {param && param.lessonId ?
+                <Button variant="contained" size="large"
+                    sx={{
+                        fontSize: 16,
+                        mt: 3
+                    }}
+                    startIcon={<AddIcon />}
+                    onClick={() => submitUpdateLesson()}
+                >Cập nhật bài học</Button>
+                :
+                <Button variant="contained" size="large"
+                    sx={{
+                        fontSize: 16,
+                        mt: 3
+                    }}
+                    startIcon={<AddIcon />}
+                    onClick={() => submitCreateLesson()}
+                >Tạo bài học</Button>
+            }
         </Box>
     );
 }
