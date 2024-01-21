@@ -12,7 +12,7 @@ const Footer = () => {
                 borderColor: "rgba(231, 231, 231, 0)",
                 display: "flex",
                 paddingTop: 3,
-                marginTop: 3,
+                marginTop: 0,
                 minHeight: 250,
                 paddingBottom: 5
             }}

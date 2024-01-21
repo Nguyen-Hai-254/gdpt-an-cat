@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { navData } from "../utils/navData";
+import { navData, navDataAdmin } from "../utils/navData";
 import Navbar from "./header/Nav";
 import { Link } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
@@ -9,7 +9,7 @@ import { GridMenuIcon } from "@mui/x-data-grid";
 
 export const Navigation = () => {
   const token = useSelector((state) => state.auth.access_token)
-
+  const user = useSelector((state) => state.auth.user)
 
   const [showNavbar, setShowNavbar] = useState(false);
   const [isMinScreen, setIsMinScreen] = useState(false);
@@ -98,9 +98,14 @@ export const Navigation = () => {
 
           <div className={`nav-elements  ${showNavbar && "active"}`}>
             <ul className="nav navbar-nav navbar-right">
-              {navData.map((item, index) => {
-                return <Navbar navData={item} key={index} isMinScreen={isMinScreen} />
-              })}
+              {user && user.role === 'Admin' ?
+                navDataAdmin.map((item, index) => {
+                  return <Navbar navData={item} key={index} isMinScreen={isMinScreen} />
+                })
+                :
+                navData.map((item, index) => {
+                  return <Navbar navData={item} key={index} isMinScreen={isMinScreen} />
+                })}
             </ul>
           </div>
           {token ?

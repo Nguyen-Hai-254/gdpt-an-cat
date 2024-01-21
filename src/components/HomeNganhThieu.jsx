@@ -13,7 +13,9 @@ export const HomeNganhThieu = () => {
             pl: 2,
             pr: 2,
             borderTop: "3px solid #fff",
-            pt: "50"
+            pt: "50",
+            pb: "50",
+            background: "#cee2d6",
         }}>
             <Grid container item lg={7} md={7} xs={4}
                 rowGap={1}

@@ -96,7 +96,7 @@ export const Reference = () => {
                             </Typography>
                         </Box>
                         <img
-                            src={require("../assests/images/trochoi/trochoi.jpg")}
+                            src={require("../assests/images/mot-so-de-thi/mot-so-de-thi.jpg")}
                             alt="một số đề thi vượt bậc"
                             style={{ maxWidth: "100%" }}
                         />
@@ -136,9 +136,9 @@ export const Reference = () => {
                             </Typography>
                         </Box>
                         <img
-                            src={require("../assests/images/trochoi/trochoi.jpg")}
+                            src={require("../assests/images/hoat-dong-thanh-nien/hoat-dong-thanh-nien.jpg")}
                             alt="hoạt động thanh niên"
-                            style={{ maxWidth: "100%" }}
+                            style={{ maxWidth: "100%", maxHeight: "240px" }}
                         />
                     </ImageListItem>
 

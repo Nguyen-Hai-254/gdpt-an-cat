@@ -81,7 +81,7 @@ const CreateLesson = () => {
 
     return (
         <Box sx={{ maxWidth: '80%' }} margin="0 auto">
-            <Typography variant="h1" textAlign={"center"} >{param ? 'Chỉnh sửa bài học' : 'Tạo bài học mới'}</Typography>
+            <Typography variant="h1" textAlign={"center"} >{param && param.lessonId ? 'Chỉnh sửa bài học' : 'Tạo bài học mới'}</Typography>
 
             <Box mt={3}>
                 <Typography variant="h4" >

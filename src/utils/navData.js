@@ -120,3 +120,79 @@ export const navData = [
         url: '/mat-thu'
     }
 ];
+
+
+export const navDataAdmin = [
+    {
+        title: 'Trang chủ',
+        url: '/',
+    },
+    {
+        title: 'Tu học',
+        url: '/admin',
+    },
+    {
+        title: 'Huấn luyện',
+        url: '/admin/huan-luyen',
+    },
+    {
+        title: "Hoạt động thanh niên",
+        url: "/admin/hoat-dong-thanh-nien",
+        submenu: [
+            {
+                title: "Gút dây",
+                url: '/hoat-dong-thanh-nien/gut-day'
+            },
+            {
+                title: "Mật thư",
+                url: '/hoat-dong-thanh-nien/mat-thu'
+            },
+            {
+                title: "Dấu đi đường",
+                url: '/hoat-dong-thanh-nien/dau-di-duong'
+            },
+            {
+                title: "Truyền tin",
+                url: '/hoat-dong-thanh-nien/truyen-tin'
+            },
+            {
+                title: "Phương hướng",
+                url: '/hoat-dong-thanh-nien/phuong-huong'
+            },
+            {
+                title: "Ước đạt",
+                url: '/hoat-dong-thanh-nien/uoc-dat'
+            },
+        ]
+    },
+    {
+        title: 'Tư liệu tham khảo',
+        url: '/admin/tu-lieu-tham-khao',
+        submenu: [
+            {
+                title: 'Một số đề thi',
+                url: '/tu-lieu-tham-khao/mot-so-de-thi',
+            },
+            {
+                title: 'Câu chuyện tiền thân',
+                url: '/tu-lieu-tham-khao/cau-chuyen-tien-than',
+            },
+            {
+                title: 'file',
+                url: '/tu-lieu-tham-khao/file',
+            },
+            {
+                title: 'Trò chơi',
+                url: '/tu-lieu-tham-khao/tro-choi',
+            },           
+        ],
+    },
+    {
+        title: 'Góc vườn lam',
+        url: '/admin/goc-vuon-lam'
+    },
+    {
+        title: 'Giải mật thư',
+        url: '/admin/mat-thu'
+    }
+];
