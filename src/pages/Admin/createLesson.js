@@ -4,7 +4,7 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import AddIcon from '@mui/icons-material/Add';
 import { createLesson, getLessonById } from "../../api/lessonApi";
-import { ContentState, EditorState, convertFromHTML, convertFromRaw, convertToRaw } from "draft-js";
+import { ContentState, EditorState, convertFromHTML, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import { typeLesson, typeLevel, typeChapter } from "../../utils/tuHoc";
 import { toast } from "react-toastify";

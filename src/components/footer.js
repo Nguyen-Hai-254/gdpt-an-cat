@@ -1,6 +1,5 @@
 import { Phone, Mail, FacebookOutlined } from "@mui/icons-material";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -37,7 +36,7 @@ const Footer = () => {
                         sx={{ display: "flex" }}>
                         <FacebookOutlined />
                         <Typography variant="subtitle1" sx={{ ml: 1 }}>Trang facebook của gia đình:
-                            <a href="https://www.facebook.com/gdptancat.com.vn" target="_blank">https://www.facebook.com/gdptancat.com.vn</a>
+                            <a href="https://www.facebook.com/gdptancat.com.vn" target="_blank" rel="noreferrer">https://www.facebook.com/gdptancat.com.vn</a>
                         </Typography>
                     </Box>
                 </Grid>

@@ -35,6 +35,7 @@ export const HomeNganhThieu = () => {
                     >
                         <img
                             src={require("../assests/images/nganh-thieu/huongthien.jpg")}
+                            alt="Hướng Thiện"
                             style={{ maxWidth: "90%" }}>
                         </img>
                         <Typography variant="body1"
@@ -62,6 +63,7 @@ export const HomeNganhThieu = () => {
                     >
                         <img
                             src={require("../assests/images/nganh-thieu/sothien.jpg")}
+                            alt="Sơ Thiện"
                             style={{ maxWidth: "90%" }}>
                         </img>
                         <Typography variant="body1"
@@ -89,6 +91,7 @@ export const HomeNganhThieu = () => {
                     >
                         <img
                             src={require("../assests/images/nganh-thieu/trungthien.jpg")}
+                            alt="Trung Thiện"
                             style={{ maxWidth: "90%" }}>
                         </img>
                         <Typography variant="body1"
@@ -116,6 +119,7 @@ export const HomeNganhThieu = () => {
                     >
                         <img
                             src={require("../assests/images/nganh-thieu/chanhthien.jpg")}
+                            alt="Chánh Thiện"
                             style={{ maxWidth: "90%" }}>
                         </img>
                         <Typography variant="body1"
@@ -146,7 +150,7 @@ export const HomeNganhThieu = () => {
                             content: '""',
                             position: "absolute",
                             top: "100%",
-                            background: "linear-gradient(to right, #5ca9fb 0%, #6372ff 100%)",
+                            // background: "linear-gradient(to right, #5ca9fb 0%, #6372ff 100%)",
                             background: "linear-gradient(111.3deg, #9c27b0 9.6%, #00bcd4 93.6%)",
                             height: "5px",
                             width: "100%",

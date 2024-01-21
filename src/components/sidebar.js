@@ -24,7 +24,7 @@ const Sidebar = ({ level }) => {
         }
 
         fetchData(level);
-    }, [])
+    }, [level])
 
     return (
         <Box sx={{ minWidth: { xs: showSidebar ? "65%" : "10%", md: '20%' }, }}>

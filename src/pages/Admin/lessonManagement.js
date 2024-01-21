@@ -48,22 +48,23 @@ export default function LessonManagement() {
         setSkip(0);
     };
 
-    const fetchData = async (skip, limit, level, chapter) => {
-        try {
-            const res = await getAllLesson(skip, limit, level, chapter);
-            setRows(res.data.data);
-            setNumberRow(res.data.count);
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
     useEffect(() => {
+        const fetchData = async (skip, limit, level, chapter) => {
+            try {
+                const res = await getAllLesson(skip, limit, level, chapter);
+                setRows(res.data.data);
+                setNumberRow(res.data.count);
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
         if (!token) {
             navigate('/login');
         }
-        else
+        else {
             fetchData(skip, limit, level, chapter)
+        }
 
     }, [skip, limit, level, chapter])
 

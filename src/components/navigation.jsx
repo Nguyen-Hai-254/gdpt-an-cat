@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { navData } from "../utils/navData";
 import Navbar from "./header/Nav";
 import { Link } from "react-router-dom";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { AccountCircleSharp } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import { GridMenuIcon } from "@mui/x-data-grid";

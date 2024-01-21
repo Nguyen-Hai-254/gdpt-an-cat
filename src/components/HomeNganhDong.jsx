@@ -29,7 +29,7 @@ export const HomeNganhDong = () => {
                                 content: '""',
                                 position: "absolute",
                                 top: "100%",
-                                background: "linear-gradient(to right, #5ca9fb 0%, #6372ff 100%)",
+                                // background: "linear-gradient(to right, #5ca9fb 0%, #6372ff 100%)",
                                 background: "linear-gradient(111.3deg, #9c27b0 9.6%, #00bcd4 93.6%)",
                                 height: "5px",
                                 width: "100%",
@@ -66,6 +66,7 @@ export const HomeNganhDong = () => {
                         >
                             <img
                                 src={require("../assests/images/nganh-dong/momat.jpg")}
+                                alt="Mở Mắt"
                                 style={{ width: "100%" }}>
                             </img>
                             <Typography variant="body1"
@@ -93,6 +94,7 @@ export const HomeNganhDong = () => {
                         >
                             <img
                                 src={require("../assests/images/nganh-dong/chancung.jpg")}
+                                alt="Chân Cứng"
                                 style={{ width: "100%" }}>
                             </img>
                             <Typography variant="body1"
@@ -120,6 +122,7 @@ export const HomeNganhDong = () => {
                         >
                             <img
                                 src={require("../assests/images/nganh-dong/canhmem.jpg")}
+                                alt="Cánh Mềm"
                                 style={{ width: "100%" }}>
                             </img>
                             <Typography variant="body1"
@@ -147,6 +150,7 @@ export const HomeNganhDong = () => {
                         >
                             <img
                                 src={require("../assests/images/nganh-dong/tungbay.jpg")}
+                                alt="Tung Bay"
                                 style={{ width: "100%" }}>
                             </img>
                             <Typography variant="body1"
