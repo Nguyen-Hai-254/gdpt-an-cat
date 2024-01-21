@@ -33,7 +33,7 @@ const BaiHocChiTiet = ({ lessonId, level }) => {
         }
 
         fetchData(lessonId)
-    }, [lessonId])
+    }, [lessonId, level])
 
     return (
         <Container sx={{

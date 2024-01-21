@@ -8,7 +8,9 @@ export const HomeNganhDong = () => {
             <Grid container sx={{
                 display: "flex",
                 flexWrap: "nowrap",
-                mt: "0",
+                margin: "50 auto 50",
+                pl: 2,
+                pr: 2,
                 alignItems: "center",
                 minHeight: "350px"
             }}>

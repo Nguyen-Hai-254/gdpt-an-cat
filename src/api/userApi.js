@@ -2,8 +2,10 @@ import axios from "axios";
 import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 import store from "../redux/store";
 
-const port = process.env.PORT_BE || 3002;
-const domain = `http://localhost:${port}`;
+// const port = process.env.REACT_APP_PORT_BE || 3002;
+// const domain = `http://localhost:${port}`;
+
+const domain = process.env.REACT_APP_API;
 
 
 const baseQuery = fetchBaseQuery({

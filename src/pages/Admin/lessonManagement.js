@@ -64,6 +64,7 @@ export default function LessonManagement() {
         }
         else
             fetchData(skip, limit, level, chapter)
+
     }, [skip, limit, level, chapter])
 
     const handleDeleteLesson = async (lessonId) => {

@@ -1,8 +1,10 @@
 import axios from "axios";
 import store from "../redux/store";
 
-const port = process.env.PORT_BE || 3002;
-const domain = `http://localhost:${port}`;
+// const port = process.env.REACT_APP_PORT_BE || 3002;
+// const domain = `http://localhost:${port}`;
+
+const domain = process.env.REACT_APP_API;
 
 
 export const getAllLesson = async (skip, limit, level, chapter) => {

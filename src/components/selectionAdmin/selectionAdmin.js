@@ -1,9 +1,13 @@
 import { MenuItem, Select } from "@mui/material"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 const Selection = ({ lessonId, orderLesson, setOrderLesson }) => {
-    const [order, setOrder] = useState(orderLesson)
+    const [order, setOrder] = useState()
+
+    useEffect(() => {
+        setOrder(orderLesson)
+    }, [orderLesson])
 
     const handleSetOrderLesson = (value) => {
         setOrder(value)
