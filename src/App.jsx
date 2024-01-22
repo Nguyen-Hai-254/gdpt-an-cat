@@ -20,6 +20,9 @@ import MatThu from './pages/matThu/matThu';
 import { useSelector } from 'react-redux';
 import ScrollToTop from './components/scroll';
 import LongHieuChimOanhVu from './pages/chuyenTienThan/LongHieuChimOanhVu';
+import CreateExam from './pages/Admin/Reference/createExam';
+import ExamManagement from './pages/Admin/Reference/examManagement';
+import GameManagement from './pages/Admin/game/gameManagement';
 
 
 const App = () => {
@@ -326,7 +329,6 @@ const App = () => {
                     <Route Route
                         path="/admin"
                         exact
-
                     >
                         <Route
                             index
@@ -343,6 +345,27 @@ const App = () => {
                             exact
                             element={<CreateLesson />}
                         ></Route>
+
+                        <Route
+                            path="tu-lieu-tham-khao"
+                            exact
+                        >
+                            <Route
+                                index
+                                element={<ExamManagement />} >
+                            </Route>
+                            <Route
+                                path='tao-de-thi'
+                                exact
+                                element={<CreateExam />}
+                            ></Route>
+
+                            <Route
+                                path='tro-choi'
+                                exact
+                                element={<GameManagement />}
+                            ></Route>
+                        </Route>
                     </Route>
 
 
