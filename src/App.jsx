@@ -28,6 +28,7 @@ import CreateMatThu from './pages/Admin/matThu/createMatThu';
 import MatThuUser from './pages/matThu/matThuUser';
 import AuthWrapper from './components/AuthWrapper';
 import Profile from './pages/profile/profile';
+import Developing from './components/Developing';
 
 
 const App = () => {
@@ -121,7 +122,7 @@ const App = () => {
                         element={<Account />}
                     />
 
-                    <Route path='tu-hoc'>
+                    <Route path='tu-hoc' exact>
                         <Route
                             index
                             element={<TuHoc />}
@@ -300,9 +301,17 @@ const App = () => {
                     </Route>
 
 
+                    <Route path='huan-luyen' exact element={<Developing/>}>
 
-                    <Route
-                        path="/tu-lieu-tham-khao"
+                    </Route>
+
+                    <Route path='hoat-dong-thanh-nien' exact element={<Developing/>}>
+
+                    </Route>
+
+
+
+                    <Route path="/tu-lieu-tham-khao"
                         exact
                     >
                         <Route
@@ -330,6 +339,8 @@ const App = () => {
                             element={<TroChoi />}>
                         </Route>
                     </Route>
+
+                    <Route path='goc-vuon-lam' exact element={<Developing />}></Route>
 
                     <Route element={<AuthWrapper />}>
                         <Route

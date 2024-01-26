@@ -17,7 +17,6 @@ const TroChoi = () => {
             try {
                 const res = await getTroChoi();
                 setData(res.data.content)
-                console.log(data)
             } catch (e) {
                 console.error(e.message);
             }

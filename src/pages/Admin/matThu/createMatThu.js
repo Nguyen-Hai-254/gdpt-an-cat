@@ -73,7 +73,7 @@ const CreateMatThu = () => {
         const fetchData = async (matThuId) => {
             const res = await getMatThuById(matThuId);
             const data = res.data;
-            console.log(data);
+
             setBV(data.BV);
             setKeys(data.key);
 

@@ -15,6 +15,7 @@ const Profile = () => {
     const [email, setEmail] = useState('')
     const [address, setAddress] = useState('')
     const [data, setData] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
@@ -29,16 +30,16 @@ const Profile = () => {
                 setName(data.name);
                 setEmail(data.email)
                 setAddress(data.address)
+                setIsLoading(false);
             } catch (e) {
                 if (e.response.status) {
                     toast.error(e.response.data)
                 }
             }
-
         }
 
         fetchData();
-    }, [])
+    }, [isLoading])
 
     const cancelButton = () => {
         setOpen(false);
@@ -60,7 +61,7 @@ const Profile = () => {
             newData.name = name;
             newData.address = address;
             setData(newData);
-            
+
             setOpen(false);
         } catch (e) {
             if (e.response && e.response.status) {

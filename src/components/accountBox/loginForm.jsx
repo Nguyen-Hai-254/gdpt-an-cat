@@ -37,7 +37,6 @@ export function LoginForm(props) {
                 navigate(redirectTo === '' ? '/admin' : redirectTo);
             }
             else {
-                console.log(redirectTo);
                 navigate(redirectTo === '' || redirectTo.includes('/admin') ? '/' : redirectTo);
             }
 

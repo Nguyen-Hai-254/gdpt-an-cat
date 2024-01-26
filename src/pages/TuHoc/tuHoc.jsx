@@ -50,7 +50,7 @@ const TuHoc = () => {
             </Box>
 
             <ImageList sx={{
-                width: { xs: "100%", md: "40%" },
+                width: { xs: "90%", md: "40%" },
                 margin: "30px auto"
             }} cols={2} gap={16}>
                 <ImageListItem >

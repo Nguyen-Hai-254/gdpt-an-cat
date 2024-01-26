@@ -3,16 +3,14 @@ import { useEffect, useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import AddIcon from '@mui/icons-material/Add';
-import { getLessonById } from "../../../api/lessonApi";
 import { ContentState, EditorState, convertFromHTML, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import { toast } from "react-toastify";
-import { useNavigate, useParams } from "react-router-dom";
-import { getTroChoi, updateLesson, updateTroChoi } from "../../../api/adminApi";
+import { useNavigate } from "react-router-dom";
+import { getTroChoi, updateTroChoi } from "../../../api/adminApi";
 
 
 const GameManagement = () => {
-    const param = useParams();
     const navigate = useNavigate();
 
     let editorState = EditorState.createEmpty();
