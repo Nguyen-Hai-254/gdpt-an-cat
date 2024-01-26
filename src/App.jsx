@@ -301,11 +301,11 @@ const App = () => {
                     </Route>
 
 
-                    <Route path='huan-luyen' exact element={<Developing/>}>
+                    <Route path='huan-luyen' exact element={<Developing />}>
 
                     </Route>
 
-                    <Route path='hoat-dong-thanh-nien' exact element={<Developing/>}>
+                    <Route path='hoat-dong-thanh-nien' exact element={<Developing />}>
 
                     </Route>
 
@@ -318,6 +318,15 @@ const App = () => {
                             index
                             element={<TuHoc />}
                         />
+                        <Route
+                            path="mot-so-de-thi"
+                            exact
+                        >
+                            <Route
+                                index
+                                element={<Developing />}
+                            />s
+                        </Route>
                         <Route
                             path="cau-chuyen-tien-than"
                             exact

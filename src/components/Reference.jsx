@@ -103,7 +103,7 @@ export const Reference = () => {
                     </ImageListItem>
 
                     <ImageListItem >
-                        <LinkHover to="/tu-lieu-tham-khao/hoat-dong-thanh-nien">
+                        <LinkHover to="/hoat-dong-thanh-nien">
                         </LinkHover>
                         <Box sx={{
                             fontFamily: 'Roboto',
