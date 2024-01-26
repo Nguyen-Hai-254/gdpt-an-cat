@@ -171,19 +171,19 @@ export const navDataAdmin = [
         submenu: [
             {
                 title: 'Một số đề thi',
-                url: '/tu-lieu-tham-khao/mot-so-de-thi',
+                url: 'admin/tu-lieu-tham-khao/mot-so-de-thi',
             },
             {
                 title: 'Câu chuyện tiền thân',
-                url: '/tu-lieu-tham-khao/cau-chuyen-tien-than',
+                url: 'admin/tu-lieu-tham-khao/cau-chuyen-tien-than',
             },
             {
                 title: 'file',
-                url: '/tu-lieu-tham-khao/file',
+                url: 'admin/tu-lieu-tham-khao/file',
             },
             {
                 title: 'Trò chơi',
-                url: '/tu-lieu-tham-khao/tro-choi',
+                url: 'admin/tu-lieu-tham-khao/chinh-sua-tro-choi',
             },           
         ],
     },

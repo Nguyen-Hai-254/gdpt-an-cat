@@ -14,7 +14,7 @@ import { Typography } from "@mui/material";
 import { login } from "../../api/userApi";
 import { useDispatch } from "react-redux";
 import { setAccessToken } from "../../redux/reducers/authSlice";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function LoginForm(props) {
     const { switchToSignup } = useContext(AccountContext);
@@ -25,14 +25,22 @@ export function LoginForm(props) {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
+    const location = useLocation();
+    const redirectTo = location.search.replace('?redirectTo=', '')
+
     const handleLogin = async () => {
         try {
             const res = await login(email, password);
             dispatch(setAccessToken(res.data));
+
             if (res.data.userData && res.data.userData.role === "Admin") {
-                navigate('/admin');
+                navigate(redirectTo === '' ? '/admin' : redirectTo);
             }
-            else navigate('/');
+            else {
+                console.log(redirectTo);
+                navigate(redirectTo === '' || redirectTo.includes('/admin') ? '/' : redirectTo);
+            }
+
         } catch (e) {
             if (e.response && e.response.status) {
                 setError(e.response.data)

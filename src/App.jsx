@@ -16,13 +16,18 @@ import { Container } from '@mui/material';
 import LessonManagement from './pages/Admin/lessonManagement';
 import Toastify from './components/toastify/toastify';
 import Account from './pages/account/account';
-import MatThu from './pages/matThu/matThu';
 import { useSelector } from 'react-redux';
 import ScrollToTop from './components/scroll';
 import LongHieuChimOanhVu from './pages/chuyenTienThan/LongHieuChimOanhVu';
 import CreateExam from './pages/Admin/Reference/createExam';
 import ExamManagement from './pages/Admin/Reference/examManagement';
 import GameManagement from './pages/Admin/game/gameManagement';
+import TroChoi from './pages/tuLieuThamKhao/troChoi';
+import MatThuManagement from './pages/Admin/matThu/matThuManagement';
+import CreateMatThu from './pages/Admin/matThu/createMatThu';
+import MatThuUser from './pages/matThu/matThuUser';
+import AuthWrapper from './components/AuthWrapper';
+import Profile from './pages/profile/profile';
 
 
 const App = () => {
@@ -101,6 +106,7 @@ const App = () => {
                 mt: 5,
                 pl: "0 !important",
                 pr: "0 !important",
+                pb: 5
             }}>
                 <Routes>
                     <Route
@@ -317,63 +323,104 @@ const App = () => {
                                 element={<LongHieuChimOanhVu />}
                             ></Route>
                         </Route>
+
+                        <Route
+                            path='tro-choi'
+                            exact
+                            element={<TroChoi />}>
+                        </Route>
                     </Route>
 
-                    <Route
-                        path="/mat-thu"
-                        exact
-                        element={<MatThu />}
-                    />
-
-
-                    <Route Route
-                        path="/admin"
-                        exact
-                    >
+                    <Route element={<AuthWrapper />}>
                         <Route
-                            index
-                            element={<LessonManagement />} >
-                        </Route>
-                        <Route
-                            path='tao-bai-hoc'
+                            path="mat-thu"
                             exact
-                            element={<CreateLesson />}
-                        >
-                        </Route>
-                        <Route
-                            path='chinh-sua-bai-hoc/:lessonId'
-                            exact
-                            element={<CreateLesson />}
-                        ></Route>
+                            element={<MatThuUser />}
+                        />
 
                         <Route
-                            path="tu-lieu-tham-khao"
+                            path="profile"
                             exact
                         >
                             <Route
                                 index
-                                element={<ExamManagement />} >
+                                element={<Profile />} >
                             </Route>
-                            <Route
-                                path='tao-de-thi'
-                                exact
-                                element={<CreateExam />}
-                            ></Route>
-
-                            <Route
-                                path='tro-choi'
-                                exact
-                                element={<GameManagement />}
-                            ></Route>
                         </Route>
                     </Route>
 
 
+                    <Route element={<AuthWrapper />}>
+                        <Route Route
+                            path="/admin"
+                            exact
+                        >
+                            <Route
+                                index
+                                element={<LessonManagement />} >
+                            </Route>
+                            <Route
+                                path='tao-bai-hoc'
+                                exact
+                                element={<CreateLesson />}
+                            >
+                            </Route>
+                            <Route
+                                path='chinh-sua-bai-hoc/:lessonId'
+                                exact
+                                element={<CreateLesson />}
+                            ></Route>
 
-                    <Route
-                        path="*"
-                        element={<NotFound />}
-                    />
+                            <Route
+                                path="tu-lieu-tham-khao"
+                                exact
+                            >
+                                <Route
+                                    index
+                                    element={<ExamManagement />} >
+                                </Route>
+                                <Route
+                                    path='tao-de-thi'
+                                    exact
+                                    element={<CreateExam />}
+                                ></Route>
+
+                                <Route
+                                    path='chinh-sua-tro-choi'
+                                    exact
+                                    element={<GameManagement />}
+                                ></Route>
+                            </Route>
+
+                            <Route
+                                path="mat-thu"
+                                exact
+                            >
+                                <Route
+                                    index
+                                    element={<MatThuManagement />}>
+                                </Route>
+                                <Route
+                                    path='tao-mat-thu'
+                                    exact
+                                    element={<CreateMatThu />}
+                                >
+                                </Route>
+                                <Route
+                                    path='chinh-sua-mat-thu/:matThuId'
+                                    exact
+                                    element={<CreateMatThu />}
+                                />
+                            </Route>
+                        </Route>
+
+
+
+                        <Route
+                            path="*"
+                            element={<NotFound />}
+                        />
+                    </Route>
                 </Routes>
             </Container >
 

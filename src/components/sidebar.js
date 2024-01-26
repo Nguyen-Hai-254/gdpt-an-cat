@@ -19,8 +19,12 @@ const Sidebar = ({ level }) => {
 
     useEffect(() => {
         const fetchData = async (level) => {
-            const res = await getTableOfContentLevel(level);
-            setData(res.data)
+            try {
+                const res = await getTableOfContentLevel(level);
+                setData(res.data);
+            } catch (e) {
+                console.log(e);
+            }
         }
 
         fetchData(level);
@@ -36,7 +40,8 @@ const Sidebar = ({ level }) => {
                     height: '32px',
                     borderRadius: '4px',
                     position: 'sticky',
-                    top: '110px'
+                    top: '110px',
+                    zIndex: "1000"
                 }}
                 onClick={() => handleShowSidebar()}
             >
@@ -79,6 +84,7 @@ const Sidebar = ({ level }) => {
                                                         }
                                                     }}
                                                     to={location.pathname.slice(0, location.pathname.lastIndexOf("/")) + '/' + lesson.url}
+                                                    onClick={() => setShowSidebar(false)}
                                                 >
                                                     {lesson.title}
                                                 </NavLink>

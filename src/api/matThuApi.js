@@ -7,101 +7,118 @@ const domain = `http://localhost:${port}`;
 // const domain = process.env.REACT_APP_API;
 
 
-export const getAllLesson = async (skip, limit, level, chapter) => {
-    const res = await axios({
-        method: "get",
-        headers: {
-            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
-        },
-        url: `${domain}/allStudy`,
-        params: {
-            skip: skip,
-            limit: limit,
-            level: level,
-            chapter: chapter
-        }
-    })
-
-    return res.data;
-}
-
-export const deleteLessonById = async (lessonId) => {
-    const res = await axios({
-        method: "delete",
-        headers: {
-            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
-        },
-        url: `${domain}/lesson`,
-        params: {
-            lessonId: lessonId
-        }
-    })
-
-    return res.data;
-}
-
-export const setOrderLesson = async (lessonId, order) => {
+export const createMatThu = async (OTT, NW, BV, key) => {
     const res = await axios({
         method: "post",
         headers: {
             'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
         },
-        url: `${domain}/setOrderLesson`,
-        params: {
-            lessonId: lessonId
-        },
+        url: `${domain}/matThu`,
         data: {
-            order: order
+            OTT: OTT,
+            NW: NW,
+            BV: BV,
+            key: key
         }
     })
 
     return res.data;
 }
 
-export const updateLesson = async (lessonId, title, url, type, level, chapter, content) => {
-    const res = await axios({
-        method: "put",
-        headers: {
-            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
-        },
-        url: `${domain}/updateLesson`,
-        params: {
-            lessonId: lessonId
-        },
-        data: {
-            title: title,
-            url: url,
-            type: type,
-            level: level,
-            chapter: chapter,
-            content: content
-        }
-    })
-
-    return res.data;
-}
-
-export const getTroChoi = async () => {
+export const getAllMatThu = async (skip, limit) => {
     const res = await axios({
         method: "get",
         headers: {
             'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
         },
-        url: `${domain}/game`,
+        url: `${domain}/matThu`,
+        params: {
+            skip: skip,
+            limit: limit
+        }
     })
 
     return res.data;
 }
 
-export const updateTroChoi = async (content) => {
+export const updateMatThu = async (id, OTT, NW, BV, key) => {
     const res = await axios({
         method: "put",
         headers: {
             'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
         },
-        url: `${domain}/game`,
+        url: `${domain}/matThu`,
+        params: {
+            id: id
+        },
         data: {
-            content: content
+            OTT: OTT,
+            NW: NW,
+            BV: BV,
+            key: key
+        }
+    })
+
+    return res.data;
+}
+
+export const deleteMatThu = async (matThuId) => {
+    const res = await axios({
+        method: "delete",
+        headers: {
+            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
+        },
+        url: `${domain}/matThu`,
+        params: {
+            id: matThuId
+        }
+    })
+
+    return res.data;
+}
+
+export const getMatThuById = async (matThuId) => {
+    const res = await axios({
+        method: "get",
+        headers: {
+            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
+        },
+        url: `${domain}/matThuById`,
+        params: {
+            id: matThuId
+        }
+    })
+
+    return res.data;
+}
+
+export const getMatThuByUser = async (STT) => {
+    const res = await axios({
+        method: "get",
+        headers: {
+            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
+        },
+        url: `${domain}/matThuByUser`,
+        params: {
+            STT: STT
+        }
+    })
+
+    return res.data;
+}
+
+export const submitMatThu = async (matThuId, BV) => {
+    const res = await axios({
+        method: "post",
+        headers: {
+            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
+        },
+        url: `${domain}/submitMatThu`,
+        params: {
+            matThuId: matThuId
+        },
+        data: {
+            BV: BV
         }
     })
 

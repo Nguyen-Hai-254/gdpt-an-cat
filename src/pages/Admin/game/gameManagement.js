@@ -8,18 +8,12 @@ import { ContentState, EditorState, convertFromHTML, convertToRaw } from "draft-
 import draftToHtml from "draftjs-to-html";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateLesson } from "../../../api/adminApi";
+import { getTroChoi, updateLesson, updateTroChoi } from "../../../api/adminApi";
 
 
 const GameManagement = () => {
     const param = useParams();
     const navigate = useNavigate();
-
-    const [title, setTitle] = useState("");
-    const [url, setUrl] = useState("");
-    const [type, setType] = useState("");
-    const [level, setLevel] = useState("");
-    const [chapter, setChapter] = useState("");
 
     let editorState = EditorState.createEmpty();
     const [content, setContent] = useState(editorState);
@@ -29,15 +23,10 @@ const GameManagement = () => {
     }
 
     useEffect(() => {
-        const fetchData = async (lessonId) => {
-            const res = await getLessonById(lessonId);
+        const fetchData = async () => {
+            const res = await getTroChoi();
             const data = res.data;
-            setTitle(data.title);
-            setUrl(data.url);
-            setType(data.type);
-            setLevel(data.level);
-            setChapter(data.chapter);
-
+            
             const contentBlocks = convertFromHTML(data.content);
             const contentState = ContentState.createFromBlockArray(
                 contentBlocks.contentBlocks,
@@ -46,17 +35,16 @@ const GameManagement = () => {
 
             setContent(EditorState.createWithContent(contentState));
         }
-        if (param && param.lessonId) {
-            fetchData(param.lessonId);
-        }
-    }, [param])
+
+        fetchData();
+    }, [])
 
     const submitEditGame = async () => {
         try {
-            const res = await updateLesson(param.lessonId, title, url, type, level, chapter, draftToHtml(convertToRaw(content.getCurrentContent())))
+            const res = await updateTroChoi(draftToHtml(convertToRaw(content.getCurrentContent())))
             if (res.statusCode === 200) {
                 toast.success(res.message);
-                navigate('/admin');
+                navigate('/admin/tu-lieu-tham-khao');
             }
         } catch (e) {
             if (e && e.response && e.response.data) {

@@ -29,7 +29,6 @@ const BaiHocChiTiet = ({ lessonId, level }) => {
             } catch (e) {
                 console.error(e.message);
             }
-
         }
 
         fetchData(lessonId)
@@ -55,7 +54,9 @@ const BaiHocChiTiet = ({ lessonId, level }) => {
             }}
                 containerStyle={bodyWidth}>
                 <Typography
-                    sx={{}} variant="h2"> {data && data.title ? data.title : ''}</Typography>
+                    sx={{
+                        fontSize: { xs: "3rem", md: "3.75rem" }
+                    }} variant="h2"> {data && data.title ? data.title : ''} (Bậc {level})</Typography>
                 <Box mt={3}
                     className="preview"
                     dangerouslySetInnerHTML={createMarkup(data.content)}>
