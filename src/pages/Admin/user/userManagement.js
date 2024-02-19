@@ -1,15 +1,16 @@
 import { Box, Button, Container, FormControl, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { deleteLessonById, getAllLesson, setOrderLesson } from "../../../api/adminApi";
+import { deleteLessonById } from "../../../api/adminApi";
 import { toast } from "react-toastify";
 import Toastify from "../../../components/toastify/toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { typeChapter, typeLevel } from "../../../utils/tuHoc";
-import Selection from "../../../components/selectionAdmin/selectionAdmin";
+import { orderUser, typeRole } from "../../../utils/tuHoc";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { getAllUser } from "../../../api/userApi";
+import moment from "moment";
 
-export default function ExamManagement() {
+export default function UserManagement() {
     const token = useSelector((state) => state.auth.access_token);
     const navigate = useNavigate();
 
@@ -17,17 +18,17 @@ export default function ExamManagement() {
     const [limit, setLimit] = useState(10);
     const [rows, setRows] = useState([]);
 
-    const [level, setLevel] = useState('');
-    const [chapter, setChapter] = useState('');
+    const [role, setRole] = useState(typeRole[1].value);
+    const [order, setOrder] = useState('');
 
-    const handleChangeLevel = (event) => {
-        setLevel(event.target.value);
+    const handleChangeRole = (event) => {
+        setRole(event.target.value);
         setPage(0);
         setSkip(0);
     };
 
-    const handleChangeChapter = (event) => {
-        setChapter(event.target.value);
+    const handleChangeOrder = (event) => {
+        setOrder(event.target.value);
         setPage(0);
         setSkip(0);
     };
@@ -49,9 +50,10 @@ export default function ExamManagement() {
     };
 
     useEffect(() => {
-        const fetchData = async (skip, limit, level, chapter) => {
+        const fetchData = async (skip, limit, role, order) => {
             try {
-                const res = await getAllLesson(skip, limit, level, chapter);
+                const res = await getAllUser(skip, limit, role, order);
+                console.log(res)
                 setRows(res.data.data);
                 setNumberRow(res.data.count);
             } catch (e) {
@@ -63,29 +65,19 @@ export default function ExamManagement() {
             navigate('/login');
         }
         else {
-            fetchData(skip, limit, level, chapter)
+            fetchData(skip, limit, role, order)
         }
 
-    }, [skip, limit, level, chapter])
+    }, [skip, limit, role, order])
 
     const handleDeleteLesson = async (lessonId) => {
         try {
             const res = await deleteLessonById(lessonId);
             if (res.statusCode === 200) {
-                toast.success(res.message)
-            }
-        } catch (e) {
-            if (e.response.status) {
-                toast.error(e.response.data)
-            }
-        }
-    }
+                toast.success(res.message);
 
-    const handleSetOrderLesson = async (lessonId, order) => {
-        try {
-            const res = await setOrderLesson(lessonId, order);
-            if (res.statusCode === 200) {
-                toast.success(res.message)
+                const newRows = rows.filter((row) => row._id !== lessonId);
+                setRows(newRows);
             }
         } catch (e) {
             if (e.response.status) {
@@ -95,44 +87,44 @@ export default function ExamManagement() {
     }
 
     const handleUpdateLesson = (lessonId) => {
-        navigate(`/admin/chinh-sua-bai-hoc/${lessonId}`);
+        navigate(`chinh-sua-bai-hoc/${lessonId}`);
     }
 
     return (
         <Container sx={{ minWidth: "100%", pl: "10px", pr: "10px" }}>
-            <Typography variant="h2">Quản lý đề thi các bậc</Typography>
+            <Typography variant="h2">Quản lý người dùng</Typography>
 
             <Box sx={{ display: "flex" }}>
-                <FormControl sx={{ m: 1, minWidth: 100 }}>
-                    <InputLabel sx={{ fontSize: 14 }}>Bậc học</InputLabel>
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                    <InputLabel sx={{ fontSize: 14 }}>Vai trò của người dùng</InputLabel>
                     <Select
-                        value={level}
-                        onChange={handleChangeLevel}
+                        value={role}
+                        onChange={handleChangeRole}
                         autoWidth
-                        sx={{ fontSize: 16 }}
+                        sx={{ fontSize: 16, minWidth: "200px" }}
                     >
-                        {typeLevel.map((level, index) => {
+                        {typeRole.map((role, index) => {
                             return (
-                                <MenuItem key={index} value={level.value}>
-                                    <em>{level.value}</em>
+                                <MenuItem key={index} value={role.value} sx={{minWidth: "200px"}}>
+                                    <em style={{ width: "180px" }}>{role.value}</em>
                                 </MenuItem>
                             )
                         })}
                     </Select>
                 </FormControl>
 
-                <FormControl sx={{ m: 1, minWidth: 100 }}>
-                    <InputLabel sx={{ fontSize: 14 }}>Học phần</InputLabel>
+                <FormControl sx={{ m: 1, minWidth: 150 }}>
+                    <InputLabel sx={{ fontSize: 14 }}>Sắp xếp theo</InputLabel>
                     <Select
-                        value={chapter}
-                        onChange={handleChangeChapter}
+                        value={order}
+                        onChange={handleChangeOrder}
                         autoWidth
                         sx={{ fontSize: 16 }}
                     >
-                        {typeChapter.map((chapter, index) => {
+                        {orderUser.map((order, index) => {
                             return (
-                                <MenuItem key={index} value={chapter.value}>
-                                    <em>{chapter.value}</em>
+                                <MenuItem key={index} value={order.value}>
+                                    <em>{order.key}</em>
                                 </MenuItem>
                             )
                         })}
@@ -142,9 +134,9 @@ export default function ExamManagement() {
                     margin: "auto 0 auto auto"
                 }}
                 >
-                    <Link to="/admin/tu-lieu-tham-khao/tao-de-thi">
+                    <Link to="tao-nguoi-dung">
                         <Typography variant="h6" color="#fff">
-                            Thêm đề thi
+                            Thêm người dùng
                         </Typography>
                     </Link>
                 </Button>
@@ -156,12 +148,11 @@ export default function ExamManagement() {
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow sx={{ fontSize: 24 }}>
-                                <TableCell sx={{ fontSize: "inherit" }}>Tiêu đề</TableCell>
-                                <TableCell sx={{ fontSize: "inherit" }} >Link</TableCell>
-                                {/* <TableCell sx={{ fontSize: "inherit" }} align="center">Chương trình tu học</TableCell> */}
-                                <TableCell sx={{ fontSize: "inherit" }} align="left">Bậc học</TableCell>
-                                <TableCell sx={{ fontSize: "inherit" }} align="left">Học phần</TableCell>
-                                <TableCell sx={{ fontSize: "inherit" }} align="center">Thứ tự</TableCell>
+                                <TableCell sx={{ fontSize: "inherit" }}>Tên</TableCell>
+                                <TableCell sx={{ fontSize: "inherit" }}>Email</TableCell>
+                                <TableCell sx={{ fontSize: "inherit", lineHeight: "2.5rem" }} align="left">Đăng nhập lần cuối</TableCell>
+                                <TableCell sx={{ fontSize: "inherit" }} align="left">Mật thư</TableCell>
+                                <TableCell sx={{ fontSize: "inherit", lineHeight: "2.5rem" }} align="center">Ngày tạo tài khoản</TableCell>
                                 <TableCell sx={{ fontSize: "inherit" }} align="center">Hành động</TableCell>
                             </TableRow>
                         </TableHead>
@@ -175,12 +166,12 @@ export default function ExamManagement() {
                                         minHeight: 90
                                     }}
                                 >
-                                    <TableCell component="th" scope="row" sx={{ fontSize: "inherit" }}> {row.title}</TableCell>
-                                    <TableCell sx={{ fontSize: "inherit" }} >{row.url}</TableCell>
-                                    <TableCell sx={{ fontSize: "inherit" }} align="left">{row.level}</TableCell>
-                                    <TableCell sx={{ fontSize: "inherit" }} align="left">{row.chapter}</TableCell>
+                                    <TableCell component="th" scope="row" sx={{ fontSize: "inherit" }}> {row.name}</TableCell>
+                                    <TableCell sx={{ fontSize: "inherit" }} >{row.email}</TableCell>
+                                    <TableCell sx={{ fontSize: "inherit" }} align="left">{moment(row.lastLogin).format("DD-MM-YYYY HH:MM:ss")}</TableCell>
+                                    <TableCell sx={{ fontSize: "inherit" }} align="left">{row.matThu}</TableCell>
                                     <TableCell sx={{ fontSize: "inherit" }} align="center">
-                                        <Selection lessonId={row._id} orderLesson={row.order} setOrderLesson={handleSetOrderLesson} />
+                                        {moment(row.createAt).format("DD-MM-YYYY HH:MM:ss")}
                                     </TableCell>
                                     <TableCell
                                         sx={{

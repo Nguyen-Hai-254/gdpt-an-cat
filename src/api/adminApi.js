@@ -1,10 +1,10 @@
 import axios from "axios";
 import store from "../redux/store";
 
-// const port = process.env.REACT_APP_PORT_BE || 3002;
-// const domain = `http://localhost:${port}`;
+const port = process.env.REACT_APP_PORT_BE || 3002;
+const domain = `http://localhost:${port}`;
 
-const domain = process.env.REACT_APP_API;
+// const domain = process.env.REACT_APP_API;
 
 
 export const getAllLesson = async (skip, limit, level, chapter) => {
@@ -81,6 +81,8 @@ export const updateLesson = async (lessonId, title, url, type, level, chapter, c
     return res.data;
 }
 
+////////////////////// Game
+
 export const getTroChoi = async () => {
     const res = await axios({
         method: "get",
@@ -102,6 +104,77 @@ export const updateTroChoi = async (content) => {
         url: `${domain}/game`,
         data: {
             content: content
+        }
+    })
+
+    return res.data;
+}
+
+////////////////////// Story
+
+export const createStory = async (name, link, content, image) => {
+    const res = await axios({
+        method: "post",
+        headers: {
+            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
+        },
+        url: `${domain}/story`,
+        data: {
+            name: name,
+            link: link,
+            content: content,
+            image: image
+        }
+    })
+
+    return res.data;
+}
+
+export const deleteStory = async (storyId) => {
+    const res = await axios({
+        method: "delete",
+        headers: {
+            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
+        },
+        url: `${domain}/story`,
+        params: {
+            storyId: storyId
+        }
+    })
+
+    return res.data;
+}
+
+export const getStoryById = async (storyId) => {
+    const res = await axios({
+        method: "get",
+        headers: {
+            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
+        },
+        url: `${domain}/story-id`,
+        params: {
+            storyId: storyId
+        }
+    })
+
+    return res.data;
+}
+
+export const updateStory = async (storyId, name, link, content, image) => {
+    const res = await axios({
+        method: "put",
+        headers: {
+            'Authorization': store.getState().auth.access_token ? `Bearer ${store.getState().auth.access_token}` : ''
+        },
+        url: `${domain}/story`,
+        params: {
+            storyId: storyId
+        },
+        data: {
+            name: name,
+            link: link,
+            content: content,
+            image: image
         }
     })
 

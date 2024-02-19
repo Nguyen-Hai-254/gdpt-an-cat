@@ -18,7 +18,6 @@ import Toastify from './components/toastify/toastify';
 import Account from './pages/account/account';
 import { useSelector } from 'react-redux';
 import ScrollToTop from './components/scroll';
-import LongHieuChimOanhVu from './pages/chuyenTienThan/LongHieuChimOanhVu';
 import CreateExam from './pages/Admin/Reference/createExam';
 import ExamManagement from './pages/Admin/Reference/examManagement';
 import GameManagement from './pages/Admin/game/gameManagement';
@@ -29,6 +28,12 @@ import MatThuUser from './pages/matThu/matThuUser';
 import AuthWrapper from './components/AuthWrapper';
 import Profile from './pages/profile/profile';
 import Developing from './components/Developing';
+import StoryManagement from './pages/Admin/Reference/storyManagement';
+import CreateStory from './pages/Admin/Reference/createStory';
+import StoryClient from './pages/tuLieuThamKhao/storyClient';
+import StoryDetail from './pages/tuLieuThamKhao/storyClientDetail';
+import ReferencePage from './pages/tuLieuThamKhao/reference';
+import UserManagement from './pages/Admin/user/userManagement';
 
 
 const App = () => {
@@ -316,7 +321,7 @@ const App = () => {
                     >
                         <Route
                             index
-                            element={<TuHoc />}
+                            element={<ReferencePage />}
                         />
                         <Route
                             path="mot-so-de-thi"
@@ -333,12 +338,12 @@ const App = () => {
                         >
                             <Route
                                 index
-                                element={<TuHoc />}
+                                element={<StoryClient />}
                             />
                             <Route
-                                path="long-hieu-cua-chim-oanh-vu"
+                                path=":storyId"
                                 exact
-                                element={<LongHieuChimOanhVu />}
+                                element={<StoryDetail />}
                             ></Route>
                         </Route>
 
@@ -377,19 +382,29 @@ const App = () => {
                         >
                             <Route
                                 index
-                                element={<LessonManagement />} >
+                                element={<UserManagement />} >
                             </Route>
+
                             <Route
-                                path='tao-bai-hoc'
+                                path="tu-hoc"
                                 exact
-                                element={<CreateLesson />}
                             >
+                                <Route
+                                    index
+                                    element={<LessonManagement />} >
+                                </Route>
+                                <Route
+                                    path='tao-bai-hoc'
+                                    exact
+                                    element={<CreateLesson />}
+                                >
+                                </Route>
+                                <Route
+                                    path='chinh-sua-bai-hoc/:lessonId'
+                                    exact
+                                    element={<CreateLesson />}
+                                ></Route>
                             </Route>
-                            <Route
-                                path='chinh-sua-bai-hoc/:lessonId'
-                                exact
-                                element={<CreateLesson />}
-                            ></Route>
 
                             <Route
                                 path="tu-lieu-tham-khao"
@@ -399,6 +414,27 @@ const App = () => {
                                     index
                                     element={<ExamManagement />} >
                                 </Route>
+
+                                <Route
+                                    path='cau-chuyen-tien-than'
+                                    exact
+                                >
+                                    <Route
+                                        index
+                                        element={<StoryManagement />} >
+                                    </Route>
+                                    <Route
+                                        path="tao-cau-chuyen-tien-than"
+                                        exact
+                                        element={<CreateStory />} >
+                                    </Route>
+                                    <Route
+                                        path="chinh-sua-cau-chuyen-tien-than/:storyId"
+                                        exact
+                                        element={<CreateStory />} >
+                                    </Route>
+                                </Route>
+
                                 <Route
                                     path='tao-de-thi'
                                     exact

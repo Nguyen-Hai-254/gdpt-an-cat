@@ -45,7 +45,8 @@ export const HomeNganhThieu = () => {
                                 fontSize: "18px",
                                 color: "#888",
                                 mt: 2,
-                                textAlign: "center"
+                                textAlign: "center",
+                                fontWeight: "600"
                             }}>
                             Hướng Thiện
                         </Typography>
@@ -73,7 +74,8 @@ export const HomeNganhThieu = () => {
                                 fontSize: "18px",
                                 color: "#888",
                                 mt: 2,
-                                textAlign: "center"
+                                textAlign: "center",
+                                fontWeight: "600"
                             }}>
                             Sơ Thiện
                         </Typography>
@@ -101,7 +103,8 @@ export const HomeNganhThieu = () => {
                                 fontSize: "18px",
                                 color: "#888",
                                 mt: 2,
-                                textAlign: "center"
+                                textAlign: "center",
+                                fontWeight: "600"
                             }}>
                             Trung Thiện
                         </Typography>
@@ -129,7 +132,8 @@ export const HomeNganhThieu = () => {
                                 fontSize: "18px",
                                 color: "#888",
                                 mt: 2,
-                                textAlign: "center"
+                                textAlign: "center",
+                                fontWeight: "600"
                             }}>
                             Chánh Thiện
                         </Typography>

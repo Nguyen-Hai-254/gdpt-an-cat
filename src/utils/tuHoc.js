@@ -86,3 +86,14 @@ export const typeChapter = [
     { value: 'C. Hoạt động xã hội' },
     { value: 'D. Văn nghệ' }
 ]
+
+export const typeRole = [
+    { value: 'Admin' },
+    { value: 'User' }
+]
+
+export const orderUser = [
+    { value: 'createAt', key: 'Ngày đăng ký tài khoản' },
+    { value: 'lastLogin', key: 'Đăng nhập gần nhất' },
+    { value: 'matThu', key: 'Top mật thư' }
+]

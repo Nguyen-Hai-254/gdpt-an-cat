@@ -254,7 +254,7 @@ export const Navigation = () => {
                             </Modal>
                         </Box>
                         :
-                        <Typography variant="h5" margin="auto 0 auto auto">
+                        <Typography variant="h5">
                             <Link to="/login">
                                 Đăng nhập
                             </Link>

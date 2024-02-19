@@ -55,14 +55,15 @@
     text-decoration: none;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1280px) {
     .menu-icon {
         display: block;
         cursor: pointer;
         border: 1px solid #ddd;
         padding: 5px 7px;
         border-radius: 4px;
-        margin-left: 13px;
+        // margin-left: 13px;
+        margin: auto 10px auto auto;
     }
 
     .nav-elements {
@@ -77,7 +78,7 @@
     }
 
     .nav-elements.active {
-        width: 65%;
+        width: 20%;
 
         .navbar-nav {
             margin: 0 !important;
@@ -94,6 +95,51 @@
         margin-top: 22px;
     }
 }
+
+@media (max-width: 1279px) {
+    .nav-elements.active {
+        width: 25%;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-elements.active {
+        width: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-elements.active {
+        width: 32%;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-elements.active {
+        width: 45%;
+    }
+}
+
+
+// @media (max-width: 540px) {
+//     .nav-elements.active {
+//         width: 45%;
+//     }
+// }
+
+@media (max-width: 530px) {
+    .nav-elements.active {
+        width: 65%;
+    }
+}
+
+@media (max-width: 280px) {
+    .nav-elements.active {
+        width: 84%;
+    }
+}
+
+
 
 
 
@@ -126,19 +172,22 @@
         background-color: #fff;
         min-width: 200px;
         z-index: 300;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.45);
 
         .header_item {
             cursor: pointer;
             width: 100%;
             border-bottom: 1px solid #bcbcbc;
-            padding: 12px 0;
+            // padding: 12px 0;
 
             a {
                 color: #555;
                 font-size: 20px;
                 line-height: 28px;
                 padding-left: 7px;
-                display: block; 
+                display: block;
+                padding-top: 12px;
+                padding-bottom: 12px;
             }
         }
 
@@ -164,7 +213,7 @@
 
 
 
-@media (max-width: 480px) {
+@media (max-width: 1280px) {
     .navbarItem {
         .navbar_title {
             color: #fff !important;
@@ -286,9 +335,9 @@ hr {
     color: #555;
     font-size: 15px;
     font-weight: 400;
-    padding: 8px 2px;
+    padding: 17px 2px 8px;
     border-radius: 0;
-    margin: 9px 10px 0;
+    margin: 0 10px;
     transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
@@ -304,7 +353,7 @@ hr {
     transition: width 0.2s;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1280px) {
     #menu.navbar-default .navbar-nav>li:after {
         background: #fff !important;
     }

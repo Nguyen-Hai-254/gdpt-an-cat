@@ -14,6 +14,10 @@ const Navbar = ({ navData, isMinScreen }) => {
                         style={({ isActive }) =>
                             isActive ? {
                                 fontWeight: "bold",
+                                // boxShadow: "inset 300px 0 0 0 #fff",
+                                // color: "#555 !important"
+                                // border: "2px solid #fff",
+                                // transition: "3s"
                             } : {}
                         }
                         className="navbar_title"

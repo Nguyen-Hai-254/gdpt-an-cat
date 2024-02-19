@@ -98,7 +98,7 @@ export default function LessonManagement() {
     }
 
     const handleUpdateLesson = (lessonId) => {
-        navigate(`/admin/chinh-sua-bai-hoc/${lessonId}`);
+        navigate(`chinh-sua-bai-hoc/${lessonId}`);
     }
 
     return (
@@ -145,7 +145,7 @@ export default function LessonManagement() {
                     margin: "auto 0 auto auto"
                 }}
                 >
-                    <Link to="/admin/tao-bai-hoc">
+                    <Link to="tao-bai-hoc">
                         <Typography variant="h6" color="#fff">
                             Thêm bài học
                         </Typography>

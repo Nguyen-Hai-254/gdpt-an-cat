@@ -74,7 +74,8 @@ export const HomeNganhDong = () => {
                                     fontSize: "18px",
                                     color: "#888",
                                     mt: 2,
-                                    textAlign: "center"
+                                    textAlign: "center",
+                                    fontWeight: "600"
                                 }}>
                                 Mở Mắt
                             </Typography>
@@ -102,7 +103,8 @@ export const HomeNganhDong = () => {
                                     fontSize: "18px",
                                     color: "#888",
                                     mt: 2,
-                                    textAlign: "center"
+                                    textAlign: "center",
+                                    fontWeight: "600"
                                 }}>
                                 Chân Cứng
                             </Typography>
@@ -130,7 +132,8 @@ export const HomeNganhDong = () => {
                                     fontSize: "18px",
                                     color: "#888",
                                     mt: 2,
-                                    textAlign: "center"
+                                    textAlign: "center",
+                                    fontWeight: "600"
                                 }}>
                                 Cánh Mềm
                             </Typography>
@@ -158,7 +161,8 @@ export const HomeNganhDong = () => {
                                     fontSize: "18px",
                                     color: "#888",
                                     mt: 2,
-                                    textAlign: "center"
+                                    textAlign: "center",
+                                    fontWeight: "600"
                                 }}>
                                 Tung Bay
                             </Typography>

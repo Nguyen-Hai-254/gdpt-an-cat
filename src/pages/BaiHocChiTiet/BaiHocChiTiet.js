@@ -3,6 +3,7 @@ import { getLessonById } from "../../api/lessonApi";
 import DOMPurify from "dompurify";
 import { Box, Container, Typography } from "@mui/material";
 import Sidebar from "../../components/sidebar";
+import SidebarRight from "../../components/sidebarRight";
 
 
 function createMarkup(html) {
@@ -45,12 +46,7 @@ const BaiHocChiTiet = ({ lessonId, level }) => {
         }}>
             <Sidebar level={level} />
             <Box sx={{
-                // width: '60%',
-                // '@media (max-width: 480px)': {
-                //     width: '80%'
-                // },
                 ml: 2,
-
             }}
                 containerStyle={bodyWidth}>
                 <Typography
@@ -62,6 +58,7 @@ const BaiHocChiTiet = ({ lessonId, level }) => {
                     dangerouslySetInnerHTML={createMarkup(data.content)}>
                 </Box>
             </Box>
+            <SidebarRight />
         </Container>
 
     )

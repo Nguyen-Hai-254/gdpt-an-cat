@@ -31,6 +31,11 @@ const LinkHover = styled(Link)`
         content: '';        
         position: absolute;
     }
+
+    &:hover img{
+        transform: scale(1.2);
+        transition: all .5s;
+    }
 `
 
 export const Reference = () => {
@@ -38,10 +43,11 @@ export const Reference = () => {
 
     return (
         <Container sx={{
-            minWidth: "100vw !important",
+            // minWidth: "100vw !important",
+            minWidth: "100%",
             background: "#cee2d6",
             m: 0,
-            p: 0,
+            p: "0 !important",
             display: "flex",
             mt: -5
         }}>

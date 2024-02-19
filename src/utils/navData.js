@@ -124,12 +124,12 @@ export const navData = [
 
 export const navDataAdmin = [
     {
-        title: 'Trang chủ',
-        url: '/',
+        title: 'Người dùng',
+        url: '/admin',
     },
     {
         title: 'Tu học',
-        url: '/admin',
+        url: '/admin/tu-hoc',
     },
     {
         title: 'Huấn luyện',
