@@ -38,7 +38,7 @@ const TroChoi = () => {
         }}>
             <Box sx={{
                 width: { xs: "90%", md: "60%" },
-                margin: "0 auto",
+                margin: { xs: "0 auto", md: "0 0 auto auto" },
             }}>
                 <Typography variant="h2">
                     Một số trò chơi sinh hoạt
