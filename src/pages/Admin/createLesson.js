@@ -70,7 +70,7 @@ const CreateLesson = () => {
             const res = await updateLesson(param.lessonId, title, url, type, level, chapter, draftToHtml(convertToRaw(content.getCurrentContent())))
             if (res.statusCode === 200) {
                 toast.success(res.message);
-                navigate('/admin');
+                navigate('/admin/tu-hoc');
             }
         } catch (e) {
             if (e && e.response && e.response.data) {

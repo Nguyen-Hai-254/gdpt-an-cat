@@ -1,7 +1,8 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getTroChoi } from "../../api/adminApi";
 import DOMPurify from "dompurify";
+import SidebarRight from "../../components/sidebarRight";
 
 function createMarkup(html) {
     return {
@@ -27,18 +28,28 @@ const TroChoi = () => {
     }, [])
 
     return (
-        <Box sx={{
-            width: { xs: "90%", md: "60%" },
-            margin: "0 auto",
+        <Container sx={{
+            maxWidth: '100% !important',
+            display: 'flex',
+            mt: 5,
+            ml: 0,
+            pl: 0,
+            pr: 1,
         }}>
-            <Typography variant="h2">
-                Một số trò chơi sinh hoạt
-            </Typography>
-            <Box mt={3}
-                className="preview"
-                dangerouslySetInnerHTML={createMarkup(data)}>
+            <Box sx={{
+                width: { xs: "90%", md: "60%" },
+                margin: "0 auto",
+            }}>
+                <Typography variant="h2">
+                    Một số trò chơi sinh hoạt
+                </Typography>
+                <Box mt={3}
+                    className="preview"
+                    dangerouslySetInnerHTML={createMarkup(data)}>
+                </Box>
             </Box>
-        </Box>
+            <SidebarRight />
+        </Container>
     )
 }
 

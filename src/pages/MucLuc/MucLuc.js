@@ -35,7 +35,10 @@ const MucLuc = ({ level }) => {
                 data?.map((item, index) => {
                     return (
                         <Box key={index}>
-                            <Typography variant="h2" color={"#112A46"} fontSize={"3.25rem"}>{item.title} </Typography>
+                            <Typography variant="h2" sx={{
+                                color: "#112A46",
+                                fontSize: { xs: '2.75rem', sm: '3.25rem' }
+                            }}>{item.title} </Typography>
                             <List sx={{
                                 listStyleType: "decimal",
                                 '&& MuiListItem:hover': {

@@ -56,7 +56,7 @@ const TableOfContent = () => {
                 </Box>
 
                 <ImageList sx={{
-                    width: { xs: "90%", md: "40%" },
+                    width: {  xs: "90%", sm: "60%", md: "40%" },
                     margin: "30px auto"
                 }} cols={2} gap={16} >
                     <ImageListItem >

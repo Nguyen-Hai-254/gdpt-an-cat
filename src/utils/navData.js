@@ -38,8 +38,8 @@ export const navData = [
                 url: '/huan-luyen/trai-anoma-ni-lien',
             },
             {
-                title: 'Trại ?',
-                url: '/huan-luyen',
+                title: 'Trại Tu Đạt Đa - Tỳ Xá Khư',
+                url: '/huan-luyen/trai-tu-dat-da-ty-xa-khu',
             },
             {
                 title: 'Trại Lộc Uyển',
@@ -56,7 +56,7 @@ export const navData = [
             {
                 title: 'Trại Vạn Hạnh',
                 url: '/huan-luyen/trai-van-hanh',
-            },            
+            },
         ],
     },
     {
@@ -108,7 +108,7 @@ export const navData = [
             {
                 title: 'Trò chơi',
                 url: '/tu-lieu-tham-khao/tro-choi',
-            },           
+            },
         ],
     },
     {
@@ -184,7 +184,7 @@ export const navDataAdmin = [
             {
                 title: 'Trò chơi',
                 url: 'admin/tu-lieu-tham-khao/chinh-sua-tro-choi',
-            },           
+            },
         ],
     },
     {
