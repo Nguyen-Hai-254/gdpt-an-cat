@@ -34,7 +34,7 @@ const ReferencePage = () => {
                             <Send sx={{ fontSize: "2rem" }} />
                         </ListItemIcon>
                         <Link to="cau-chuyen-tien-than">
-                            <ListItemText primary="Các câu chuyện tiền thân"
+                            <ListItemText primary="Các câu chuyện tiền thân và câu chuyện đạo"
                                 primaryTypographyProps={{
                                     fontSize: "2rem",
                                 }}

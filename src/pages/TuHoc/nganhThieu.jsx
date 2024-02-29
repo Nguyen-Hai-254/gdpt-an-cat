@@ -56,7 +56,7 @@ const TableOfContent = () => {
                 </Box>
 
                 <ImageList sx={{
-                    width: { xs: "100%", md: "40%" },
+                    width: { xs: "90%", md: "40%" },
                     margin: "30px auto"
                 }} cols={2} gap={16} >
                     <ImageListItem >
@@ -71,7 +71,8 @@ const TableOfContent = () => {
                                 textDecorate: "none",
                                 transition: "1.3s",
                                 background: "#fff",
-                                overflow: "hidden"
+                                overflow: "hidden",
+                                height: "100%"
                             }}
                         >
                             <img
@@ -99,7 +100,8 @@ const TableOfContent = () => {
                                 textDecorate: "none",
                                 transition: "1.3s",
                                 background: "#fff",
-                                overflow: "hidden"
+                                overflow: "hidden",
+                                height: "100%"
                             }}
                         >
                             <img
@@ -127,7 +129,8 @@ const TableOfContent = () => {
                                 textDecorate: "none",
                                 transition: "1.3s",
                                 background: "#fff",
-                                overflow: "hidden"
+                                overflow: "hidden",
+                                height: "100%"
                             }}
                         >
                             <img
@@ -156,7 +159,8 @@ const TableOfContent = () => {
                                 textDecorate: "none",
                                 transition: "1.3s",
                                 background: "#fff",
-                                overflow: "hidden"
+                                overflow: "hidden",
+                                height: "100%"
                             }}
                         >
                             <img

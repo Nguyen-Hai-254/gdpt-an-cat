@@ -42,7 +42,7 @@ const StoryClient = () => {
                     <Grid container columnSpacing={3}>
                         {data.length > 0 && data.map((story, index) => {
                             return (
-                                <Grid item lg={4} xs={12} sm={6}>
+                                <Grid item lg={4} xs={12} sm={6} key={index}>
                                     <Box sx={{
                                         border: "2px solid #888",
                                         padding: "15px",
@@ -55,6 +55,7 @@ const StoryClient = () => {
                                         margin: "auto",
                                         marginBottom: "20px",
                                         boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
+                                        height: "95%",
 
                                         '&:hover .img': {
                                             transform: "scale(1.2)",
