@@ -34,7 +34,7 @@ const StoryClient = () => {
                 width: { xs: "90%", md: "60%" },
                 margin: "0 auto"
             }}>
-                <Typography variant="h3" sx={{ fontWeight: "700", color: "#555" }}>
+                <Typography variant="h3" sx={{ fontWeight: "700", color: "#555", textAlign: 'center' }}>
                     Các câu chuyện tiền thân
                 </Typography>
 

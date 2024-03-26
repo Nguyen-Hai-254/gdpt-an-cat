@@ -46,10 +46,14 @@ const BaiHocChiTiet = ({ lessonId, level }) => {
         }}>
             <Sidebar level={level} />
             <Box sx={{
-                ml: 2,
-                mr: 2
+                ml: { xs: 0, sm: 2 },
+                mr: { xs: "5px", sm: 2 },
+                background: "#fff",
+                borderRadius: "25px",
+                padding: { xs: "16px", sm: "30px" },
+                height: "100%"
             }}
-                containerStyle={bodyWidth}>
+                containerstyle={bodyWidth}>
                 <Typography
                     sx={{
                         fontSize: { xs: "3rem", md: "3.75rem" }

@@ -11,8 +11,6 @@ export const HomeNganhThieu = () => {
             alignItems: "center",
             minHeight: "350px",
             pl: 2,
-            pr: 2,
-            borderTop: "3px solid #fff",
             pt: "50",
             pb: "50",
             background: "#cee2d6",
@@ -168,7 +166,8 @@ export const HomeNganhThieu = () => {
                 </Typography>
                 <Typography variant="body1" sx={{
                     fontSize: "1.75rem",
-                    mt: 2
+                    mt: 2,
+                    textAlign: 'justify'
                 }}>
                     "Theo chương trình tu học được tu chỉnh tại Hội nghị Đại biểu Huynh Trưởng GĐPT Việt Nam từ ngày 11 đến 14/08/2006 tại Văn phòng 2 Trung Ương GHPGVN, Thiền viện Quảng Đức và Tổ đình Vĩnh Nghiêm."
                 </Typography>

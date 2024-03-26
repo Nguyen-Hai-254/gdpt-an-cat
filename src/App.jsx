@@ -34,6 +34,8 @@ import StoryClient from './pages/tuLieuThamKhao/storyClient';
 import StoryDetail from './pages/tuLieuThamKhao/storyClientDetail';
 import ReferencePage from './pages/tuLieuThamKhao/reference';
 import UserManagement from './pages/Admin/user/userManagement';
+import GocVuonLamManagement from './pages/Admin/gocVuonLam/gocVuonLamManagement';
+import CreateGocVuonLam from './pages/Admin/gocVuonLam/createGocVuonLam';
 
 
 const App = () => {
@@ -112,7 +114,7 @@ const App = () => {
                 mt: 5,
                 pl: "0 !important",
                 pr: "0 !important",
-                pb: 5
+                pb: "40px"
             }}>
                 <Routes>
                     <Route
@@ -446,6 +448,28 @@ const App = () => {
                                     exact
                                     element={<GameManagement />}
                                 ></Route>
+                            </Route>
+
+                            <Route
+                                path="goc-vuon-lam"
+                                exact
+                            >
+                                <Route
+                                    index
+                                    element={<GocVuonLamManagement />} >
+                                </Route>
+
+                                <Route
+                                    path="tao-goc-vuon-lam"
+                                    exact
+                                    element={<CreateGocVuonLam />} >
+                                </Route>
+
+                                <Route
+                                    path="chinh-sua-goc-vuon-lam/:gocVuonLamId"
+                                    exact
+                                    element={<CreateGocVuonLam />} >
+                                </Route>
                             </Route>
 
                             <Route

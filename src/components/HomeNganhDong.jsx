@@ -41,7 +41,8 @@ export const HomeNganhDong = () => {
                     </Typography>
                     <Typography variant="body1" sx={{
                         fontSize: "1.75rem",
-                        mt: 2
+                        mt: 2,
+                        textAlign: 'justify'
                     }}>
                         "Theo chương trình tu học được tu chỉnh tại Hội nghị Đại biểu Huynh Trưởng GĐPT Việt Nam từ ngày 11 đến 14/08/2006 tại Văn phòng 2 Trung Ương GHPGVN, Thiền viện Quảng Đức và Tổ đình Vĩnh Nghiêm."
                     </Typography>
@@ -67,7 +68,7 @@ export const HomeNganhDong = () => {
                             <img
                                 src={require("../assests/images/nganh-dong/momat.jpg")}
                                 alt="Mở Mắt"
-                                style={{ width: "100%" }}>
+                                style={{ maxWidth: "95%" }}>
                             </img>
                             <Typography variant="body1"
                                 sx={{
@@ -96,7 +97,7 @@ export const HomeNganhDong = () => {
                             <img
                                 src={require("../assests/images/nganh-dong/chancung.jpg")}
                                 alt="Chân Cứng"
-                                style={{ width: "100%" }}>
+                                style={{  maxWidth: "95%" }}>
                             </img>
                             <Typography variant="body1"
                                 sx={{
@@ -125,7 +126,7 @@ export const HomeNganhDong = () => {
                             <img
                                 src={require("../assests/images/nganh-dong/canhmem.jpg")}
                                 alt="Cánh Mềm"
-                                style={{ width: "100%" }}>
+                                style={{  maxWidth: "95%" }}>
                             </img>
                             <Typography variant="body1"
                                 sx={{
@@ -154,7 +155,7 @@ export const HomeNganhDong = () => {
                             <img
                                 src={require("../assests/images/nganh-dong/tungbay.jpg")}
                                 alt="Tung Bay"
-                                style={{ width: "100%" }}>
+                                style={{  maxWidth: "95%" }}>
                             </img>
                             <Typography variant="body1"
                                 sx={{

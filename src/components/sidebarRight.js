@@ -22,22 +22,30 @@ import chanhThien from "../assests/images/nganh-thieu/chanhthien.jpg"
 
 import { Link } from "react-router-dom";
 
-
 const SidebarRight = () => {
     return (
         <Box sx={{
-            minWidth: { md: '20%' },
+            minWidth: { sm: '20%', md: '25%', lg: '20%' },
+            maxWidth: { sm: '25%', md: '20%' },
             display: { xs: 'none', md: 'flex' },
             position: "relative",
             flexDirection: 'column',
-            ml: "35px",
+            // ml: "35px",
+            background: '#fff',
+            borderRadius: '25px',
+            pl: '10px',
+            pr: '10px',
+            pt: '15px',
+            height: '100%',
+            boxShadow: '0 0 10px rgba(0, 0, 0, 0.15)',
+            margin: '0 0 auto 15px'
         }}>
             <Box sx={{
                 // width: "350px",
                 height: "200px",
                 overflow: "hidden",
                 cursor: "pointer",
-                borderRadius: "4px",
+                borderRadius: "25px",
                 position: "relative",
                 marginBottom: "20px",
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
@@ -58,6 +66,7 @@ const SidebarRight = () => {
                         backgroundPosition: "center",
                         borderRadius: "4px",
                         transition: "all .7s ease",
+                        // borderRadius: '25px',
 
                         '&:after': {
                             content: '""',
@@ -91,13 +100,13 @@ const SidebarRight = () => {
                 // height: "450px",
                 overflow: "hidden",
                 cursor: "pointer",
-                borderRadius: "4px",
+                borderRadius: "25px",
                 position: "relative",
                 marginBottom: "20px",
                 // boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
                 p: '7px'
             }}>
-                <Box>
+                <Box sx={{ '&:hover a': { background: '#35a78a' }, '&:hover a p': { color: '#fff' } }}>
                     <Link to='/tu-hoc/nganh-dong/mo-mat' style={{ display: "flex" }}>
                         <Box sx={{
                             backgroundImage: `url(${moMat})`,
@@ -105,12 +114,11 @@ const SidebarRight = () => {
                             width: "70px",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            borderRadius: "4px",
                             transition: "all .7s ease",
                         }}>
                         </Box>
                         <Typography varient="h4" sx={{
-                            fontSize: "1em",
+                            fontSize: "1.25em",
                             fontWeight: "700",
                             color: "#333",
                             textShadow: "0 1px 1px rgba(0,0,0,.5)",
@@ -119,15 +127,15 @@ const SidebarRight = () => {
                             alignSelf: 'center',
                             pl: '7px',
 
-                            '&:hover': {
-                                color: '#00a856'
-                            }
+                            // '&:hover': {
+                            //     color: '#00a856'
+                            // }
                         }}>
                             Mở Mắt
                         </Typography>
                     </Link>
                 </Box>
-                <Box sx={{ mt: 3 }}>
+                <Box sx={{ mt: 3, '&:hover a': { background: '#35a78a' }, '&:hover a p': { color: '#fff' } }}>
                     <Link to='/tu-hoc/nganh-dong/chan-cung' style={{ display: "flex" }}>
                         <Box sx={{
                             backgroundImage: `url(${chanCung})`,
@@ -135,13 +143,12 @@ const SidebarRight = () => {
                             width: "70px",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            borderRadius: "4px",
                             transition: "all .7s ease",
 
                         }}>
                         </Box>
                         <Typography varient="h4" sx={{
-                            fontSize: "1em",
+                            fontSize: "1.25em",
                             fontWeight: "700",
                             color: "#333",
                             textShadow: "0 1px 1px rgba(0,0,0,.5)",
@@ -150,15 +157,15 @@ const SidebarRight = () => {
                             alignSelf: 'center',
                             pl: '7px',
 
-                            '&:hover': {
-                                color: '#00a856'
-                            }
+                            // '&:hover': {
+                            //     color: '#00a856'
+                            // }
                         }}>
                             Chân Cứng
                         </Typography>
                     </Link>
                 </Box>
-                <Box sx={{ mt: 3 }}>
+                <Box sx={{ mt: 3, '&:hover a': { background: '#35a78a' }, '&:hover a p': { color: '#fff' } }}>
                     <Link to='/tu-hoc/nganh-dong/canh-mem' style={{ display: "flex" }}>
                         <Box sx={{
                             backgroundImage: `url(${canhMem})`,
@@ -166,13 +173,12 @@ const SidebarRight = () => {
                             width: "70px",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            borderRadius: "4px",
                             transition: "all .7s ease",
 
                         }}>
                         </Box>
                         <Typography varient="h4" sx={{
-                            fontSize: "1em",
+                            fontSize: "1.25em",
                             fontWeight: "700",
                             color: "#333",
                             textShadow: "0 1px 1px rgba(0,0,0,.5)",
@@ -190,7 +196,7 @@ const SidebarRight = () => {
                     </Link>
                 </Box>
 
-                <Box sx={{ mt: 3 }}>
+                <Box sx={{ mt: 3, '&:hover a': { background: '#35a78a' }, '&:hover a p': { color: '#fff' } }}>
                     <Link to='/tu-hoc/nganh-dong/tung-bay' style={{ display: "flex" }}>
                         <Box sx={{
                             backgroundImage: `url(${tungBay})`,
@@ -198,13 +204,12 @@ const SidebarRight = () => {
                             width: "70px",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            borderRadius: "4px",
                             transition: "all .7s ease",
 
                         }}>
                         </Box>
                         <Typography varient="h4" sx={{
-                            fontSize: "1em",
+                            fontSize: "1.25em",
                             fontWeight: "700",
                             color: "#333",
                             textShadow: "0 1px 1px rgba(0,0,0,.5)",
@@ -228,7 +233,7 @@ const SidebarRight = () => {
                 height: "200px",
                 overflow: "hidden",
                 cursor: "pointer",
-                borderRadius: "4px",
+                borderRadius: "25px",
                 position: "relative",
                 marginBottom: "20px",
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
@@ -282,7 +287,7 @@ const SidebarRight = () => {
                 // height: "450px",
                 overflow: "hidden",
                 cursor: "pointer",
-                borderRadius: "4px",
+                borderRadius: "25px",
                 position: "relative",
                 marginBottom: "20px",
                 // boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
@@ -323,7 +328,7 @@ const SidebarRight = () => {
                         <Box sx={{
                             backgroundImage: `url(${cuChi})`,
                             height: "70px",
-                            width: "70px",
+                            width: "90px",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             borderRadius: "4px",
@@ -387,7 +392,7 @@ const SidebarRight = () => {
                 height: "200px",
                 overflow: "hidden",
                 cursor: "pointer",
-                borderRadius: "4px",
+                borderRadius: "25px",
                 position: "relative",
                 marginBottom: "20px",
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
@@ -442,7 +447,7 @@ const SidebarRight = () => {
                 height: "200px",
                 overflow: "hidden",
                 cursor: "pointer",
-                borderRadius: "4px",
+                borderRadius: "25px",
                 position: "relative",
                 marginBottom: "20px",
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
@@ -497,7 +502,7 @@ const SidebarRight = () => {
                 height: "200px",
                 overflow: "hidden",
                 cursor: "pointer",
-                borderRadius: "4px",
+                borderRadius: "25px",
                 position: "relative",
                 marginBottom: "20px",
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
@@ -552,7 +557,7 @@ const SidebarRight = () => {
                 height: "200px",
                 overflow: "hidden",
                 cursor: "pointer",
-                borderRadius: "4px",
+                borderRadius: "25px",
                 position: "relative",
                 marginBottom: "20px",
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
@@ -612,7 +617,7 @@ const SidebarRight = () => {
                 // boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
                 p: '7px'
             }}>
-                <Box>
+                <Box sx={{ '&:hover a': { background: '#35a78a' }, '&:hover a p': { color: '#fff' } }}>
                     <Link to='/tu-hoc/nganh-thieu/huong-thien' style={{ display: "flex" }}>
                         <Box sx={{
                             backgroundImage: `url(${huongThien})`,
@@ -620,12 +625,11 @@ const SidebarRight = () => {
                             width: "70px",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            borderRadius: "4px",
                             transition: "all .7s ease",
                         }}>
                         </Box>
                         <Typography varient="h4" sx={{
-                            fontSize: "1em",
+                            fontSize: "1.25em",
                             fontWeight: "700",
                             color: "#333",
                             textShadow: "0 1px 1px rgba(0,0,0,.5)",
@@ -642,7 +646,7 @@ const SidebarRight = () => {
                         </Typography>
                     </Link>
                 </Box>
-                <Box sx={{ mt: 3 }}>
+                <Box sx={{ mt: 3, '&:hover a': { background: '#35a78a' }, '&:hover a p': { color: '#fff' } }}>
                     <Link to='/tu-hoc/nganh-thieu/so-thien' style={{ display: "flex" }}>
                         <Box sx={{
                             backgroundImage: `url(${soThien})`,
@@ -650,13 +654,12 @@ const SidebarRight = () => {
                             width: "70px",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            borderRadius: "4px",
                             transition: "all .7s ease",
 
                         }}>
                         </Box>
                         <Typography varient="h4" sx={{
-                            fontSize: "1em",
+                            fontSize: "1.25em",
                             fontWeight: "700",
                             color: "#333",
                             textShadow: "0 1px 1px rgba(0,0,0,.5)",
@@ -673,7 +676,7 @@ const SidebarRight = () => {
                         </Typography>
                     </Link>
                 </Box>
-                <Box sx={{ mt: 3 }}>
+                <Box sx={{ mt: 3, '&:hover a': { background: '#35a78a' }, '&:hover a p': { color: '#fff' } }}>
                     <Link to='/tu-hoc/nganh-thieu/trung-thien' style={{ display: "flex" }}>
                         <Box sx={{
                             backgroundImage: `url(${trungThien})`,
@@ -681,13 +684,12 @@ const SidebarRight = () => {
                             width: "70px",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            borderRadius: "4px",
                             transition: "all .7s ease",
 
                         }}>
                         </Box>
                         <Typography varient="h4" sx={{
-                            fontSize: "1em",
+                            fontSize: "1.25em",
                             fontWeight: "700",
                             color: "#333",
                             textShadow: "0 1px 1px rgba(0,0,0,.5)",
@@ -705,7 +707,7 @@ const SidebarRight = () => {
                     </Link>
                 </Box>
 
-                <Box sx={{ mt: 3 }}>
+                <Box sx={{ mt: 3, '&:hover a': { background: '#35a78a' }, '&:hover a p': { color: '#fff' } }}>
                     <Link to='/tu-hoc/nganh-thieu/chanh-thien' style={{ display: "flex" }}>
                         <Box sx={{
                             backgroundImage: `url(${chanhThien})`,
@@ -713,13 +715,12 @@ const SidebarRight = () => {
                             width: "70px",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            borderRadius: "4px",
                             transition: "all .7s ease",
 
                         }}>
                         </Box>
                         <Typography varient="h4" sx={{
-                            fontSize: "1em",
+                            fontSize: "1.25em",
                             fontWeight: "700",
                             color: "#333",
                             textShadow: "0 1px 1px rgba(0,0,0,.5)",

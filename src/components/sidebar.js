@@ -31,10 +31,18 @@ const Sidebar = ({ level }) => {
     }, [level])
 
     return (
-        <Box sx={{ minWidth: { xs: showSidebar ? "65%" : "10%", md: '20%' }, }}>
+        <Box sx={{
+            minWidth: { xs: showSidebar ? "65%" : "10%", md: showSidebar ? "35%" : "5%", lg: '20%' },
+            background: { xs: showSidebar ? '#fff' : '', lg: '#fff' },
+            borderRadius: '25px',
+            // height: '100%',
+            height: { xs: showSidebar ? '100%' : 'auto', sm: '100%' },
+            mr: { xs: '10px' },
+            // ml: { xs: showSidebar ? '10px' : '0' }
+        }}>
             <IconButton
                 sx={{
-                    display: { xs: 'flex', md: 'none' },
+                    display: { xs: 'flex', lg: 'none' },
                     alignItems: 'flex-start',
                     border: '1px solid #ddd',
                     height: '32px',
@@ -52,7 +60,7 @@ const Sidebar = ({ level }) => {
             <Box
                 sx={{
                     // minWidth: { xs: showSidebar ? "65%" : "10%", md: '20%' },
-                    display: { xs: showSidebar ? 'block' : 'none', md: 'block' },
+                    display: { xs: showSidebar ? 'block' : 'none', lg: 'block' },
                     transition: "transition: all 0.3s ease-in",
                     ml: "12px"
                 }}>

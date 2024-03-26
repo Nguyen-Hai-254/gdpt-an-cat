@@ -30,9 +30,18 @@ const StoryDetail = () => {
         }}>
             <Box sx={{
                 width: { xs: "90%", md: "60%" },
-                margin: "0 auto"
+                margin: "0 auto",
+                background: "#fff",
+                borderRadius: "25px",
+                padding: { xs: "16px", sm: "30px" },
+                height: "100%"
             }}>
-                <Typography variant="h3" sx={{ fontWeight: "700", color: "#555", textTransform: 'capitalize' }}>
+                <Typography variant="h3" sx={{
+                    fontWeight: "700",
+                    color: "#555", textTransform: 'capitalize',
+                    textAlign: 'center',
+                    lineHeight: '1.25'
+                }}>
                     Câu chuyện: {data && data.name ? data.name : ''}
                 </Typography>
 
@@ -47,7 +56,7 @@ const StoryDetail = () => {
                     src={data && data.image ? data.image : ''}
                 />
 
-                <Box mt={3}
+                <Box sx={{ mt: 3, textAlign: 'justify' }}
                     className="preview"
                     dangerouslySetInnerHTML={createMarkup(data.content)}>
                 </Box>

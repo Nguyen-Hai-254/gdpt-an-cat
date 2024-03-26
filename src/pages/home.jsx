@@ -21,15 +21,12 @@ const App = () => {
     }, []);
 
     return (
-        <div>
-            {/* <Header data={landingPageData.Header} /> */}
+        <div style={{ marginBottom: "-40px" }}>
             <Reference />
             <About data={landingPageData.About} />
-            {/* <Services data={landingPageData.Services} /> */}
             <Gallery data={landingPageData.Gallery} />
             <HomeNganhDong />
             <HomeNganhThieu />
-            {/* <Contact data={landingPageData.Contact} /> */}
         </div>
     );
 };
