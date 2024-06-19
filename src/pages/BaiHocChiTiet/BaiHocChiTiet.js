@@ -2,8 +2,9 @@ import { useEffect, useState } from "react"
 import { getLessonById } from "../../api/lessonApi";
 import DOMPurify from "dompurify";
 import { Box, Container, Typography } from "@mui/material";
-import Sidebar from "../../components/sidebar";
 import SidebarRight from "../../components/sidebarRight";
+import Sidebar from "../../components/sidebar";
+import Loader from "../../components/Loading/Loader";
 
 
 function createMarkup(html) {
@@ -21,12 +22,15 @@ const bodyWidth = {
 
 const BaiHocChiTiet = ({ lessonId, level }) => {
     const [data, setData] = useState({});
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         const fetchData = async (lessonId) => {
             try {
+                setIsLoading(true)
                 const res = await getLessonById(lessonId);
                 setData(res.data)
+                setIsLoading(false)
             } catch (e) {
                 console.error(e.message);
             }
@@ -58,11 +62,32 @@ const BaiHocChiTiet = ({ lessonId, level }) => {
                     sx={{
                         fontSize: { xs: "3rem", md: "3.75rem" }
                     }} variant="h2"> {data && data.title ? data.title : ''} (Bậc {level})</Typography>
-                <Box mt={3}
-                    className="preview"
-                    dangerouslySetInnerHTML={createMarkup(data.content)}>
-                </Box>
+
+                {isLoading ?
+                    <Loader />
+                    :
+                    data && data.lesson && data.lesson.map((item, index) => {
+                        return (
+                            <Box key={index}>
+                                <Box mt={3}
+                                    className="preview"
+                                    dangerouslySetInnerHTML={createMarkup(item.content)}>
+                                </Box>
+                                <Box
+                                    component="img"
+                                    sx={{
+                                        margin: "30px auto",
+                                        display: "block",
+                                        maxWidth: { xs: "70vw", sm: "50vw" },
+                                    }}
+                                    alt={data && data.name ? data.name : ''}
+                                    src={item && item.image ? item.image : ''}
+                                />
+                            </Box>
+                        )
+                    })}
             </Box>
+
             <SidebarRight />
         </Container>
 

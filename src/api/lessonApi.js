@@ -1,13 +1,12 @@
 import axios from "axios";
 import store from "../redux/store";
 
-
 // const port = process.env.REACT_APP_PORT_BE || 3002;
 // const domain = `http://localhost:${port}`;
 
 const domain = process.env.REACT_APP_API;
 
-export const createLesson = async (title, url, type, level, chapter, content) => {
+export const createLesson = async (title, url, type, level, chapter, lesson) => {
     const res = await axios({
         method: "post",
         url: `${domain}/lesson`,
@@ -20,7 +19,7 @@ export const createLesson = async (title, url, type, level, chapter, content) =>
             type: type,
             level: level,
             chapter: chapter,
-            content: content
+            lesson: lesson
         }
     })
 

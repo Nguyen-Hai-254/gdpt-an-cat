@@ -104,7 +104,7 @@ export const Reference = () => {
                         <img
                             src={require("../assests/images/mot-so-de-thi/mot-so-de-thi.jpg")}
                             alt="một số đề thi vượt bậc"
-                            style={{ maxWidth: "100%" }}
+                            style={{ maxWidth: "100%", boxShadow: '2px 2px 9px 5px #888888' }}
                         />
                     </ImageListItem>
 
@@ -144,7 +144,7 @@ export const Reference = () => {
                         <img
                             src={require("../assests/images/hoat-dong-thanh-nien/hoat-dong-thanh-nien.jpg")}
                             alt="hoạt động thanh niên"
-                            style={{ maxWidth: "100%", maxHeight: "240px" }}
+                            style={{ maxWidth: "100%", maxHeight: "240px", boxShadow: '2px 2px 9px 5px #888888' }}
                         />
                     </ImageListItem>
 
@@ -184,7 +184,7 @@ export const Reference = () => {
                         <img
                             src={require("../assests/images/trochoi/trochoi.jpg")}
                             alt="Một số trò chơi sinh hoạt"
-                            style={{ maxWidth: "100%", overflow: "hidden", }}
+                            style={{ maxWidth: "100%", overflow: "hidden", boxShadow: '2px 2px 9px 5px #888888' }}
                         />
                     </ImageListItem>
                 </ImageList>

@@ -147,25 +147,27 @@ const CreateStory = () => {
             </Box>
             <img src={image} width={"200px"} height={"200px"} alt="hình ảnh" />
 
-            {param && param.storyId ?
-                <Button variant="contained" size="large"
-                    sx={{
-                        fontSize: 16,
-                        mt: 3
-                    }}
-                    startIcon={<AddIcon />}
-                    onClick={() => submitUpdateStory()}
-                >Cập nhật câu chuyện</Button>
-                :
-                <Button variant="contained" size="large"
-                    sx={{
-                        fontSize: 16,
-                        mt: 3
-                    }}
-                    startIcon={<AddIcon />}
-                    onClick={() => submitCreateStory()}
-                >Tạo câu chuyện</Button>
-            }
+            <Box>
+                {param && param.storyId ?
+                    <Button variant="contained" size="large"
+                        sx={{
+                            fontSize: 16,
+                            mt: 3
+                        }}
+                        startIcon={<AddIcon />}
+                        onClick={() => submitUpdateStory()}
+                    >Cập nhật câu chuyện</Button>
+                    :
+                    <Button variant="contained" size="large"
+                        sx={{
+                            fontSize: 16,
+                            mt: 3
+                        }}
+                        startIcon={<AddIcon />}
+                        onClick={() => submitCreateStory()}
+                    >Tạo câu chuyện</Button>
+                }
+            </Box>
         </Box>
     );
 }

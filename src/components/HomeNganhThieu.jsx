@@ -11,6 +11,7 @@ export const HomeNganhThieu = () => {
             alignItems: "center",
             minHeight: "350px",
             pl: 2,
+            pr: 2,
             pt: "50",
             pb: "50",
             background: "#cee2d6",
@@ -142,7 +143,7 @@ export const HomeNganhThieu = () => {
             <Grid item lg={4} md={4} xs={8} sx={{
                 display: "flex",
                 flexDirection: "column",
-                ml: 2
+                // ml: 2
             }}>
                 <Typography variant="h2"
                     sx={{

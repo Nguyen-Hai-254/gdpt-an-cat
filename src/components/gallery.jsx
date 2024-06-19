@@ -1,4 +1,4 @@
-import { Box, Container, ImageList, ImageListItem, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Container, ImageList, ImageListItem, Typography, useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -117,6 +117,20 @@ export const Gallery = () => {
                         )
                     })}
                 </ImageList>
+
+                <Box sx={{ textAlign: 'center' }}>
+                    <Button size="large" variant="contained" sx={{
+                        mt: "20px",
+                        fontSize: '3.45rem'
+                    }}
+                    >
+                        <Link to="/tu-lieu-tham-khao/cau-chuyen-tien-than">
+                            <Typography variant="h6" color="#fff">
+                                Xem thêm
+                            </Typography>
+                        </Link>
+                    </Button>
+                </Box>
             </Container >
         </Container>
 

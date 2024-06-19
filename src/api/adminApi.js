@@ -58,7 +58,7 @@ export const setOrderLesson = async (lessonId, order) => {
     return res.data;
 }
 
-export const updateLesson = async (lessonId, title, url, type, level, chapter, content) => {
+export const updateLesson = async (lessonId, title, url, type, level, chapter, lesson) => {
     const res = await axios({
         method: "put",
         headers: {
@@ -74,7 +74,7 @@ export const updateLesson = async (lessonId, title, url, type, level, chapter, c
             type: type,
             level: level,
             chapter: chapter,
-            content: content
+            lesson: lesson
         }
     })
 
@@ -123,7 +123,7 @@ export const createStory = async (name, link, content, image) => {
             name: name,
             link: link,
             content: content,
-            image: image
+            image: image           
         }
     })
 
